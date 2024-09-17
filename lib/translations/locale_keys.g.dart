@@ -35,6 +35,11 @@ abstract class  LocaleKeys {
   static const forgot_password_enter_email_hint_text = 'forgot_password.enter_email_hint_text';
   static const forgot_password_send_text = 'forgot_password.send_text';
   static const forgot_password = 'forgot_password';
+  static const navbar_home_text = 'navbar.home_text';
+  static const navbar_search_text = 'navbar.search_text';
+  static const navbar_profile_text = 'navbar.profile_text';
+  static const navbar_more_text = 'navbar.more_text';
+  static const navbar = 'navbar';
   static const search_search_text = 'search.search_text';
   static const search = 'search';
   static const home_welcome_text = 'home.welcome_text';

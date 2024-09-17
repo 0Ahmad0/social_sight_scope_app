@@ -52,6 +52,12 @@ class CodegenLoader extends AssetLoader{
     "enter_email_hint_text": "أدخل البريد الإلكتروني ",
     "send_text": "إرسال"
   },
+  "navbar": {
+    "home_text": "الرئيسية",
+    "search_text": "البحث",
+    "profile_text": "البروفايل",
+    "more_text": "المزيد"
+  },
   "search": {
     "search_text": "ابحث هنا..."
   },
@@ -101,6 +107,12 @@ static const Map<String,dynamic> en = {
     "enter_email_text": "Enter the email address associated with your account.",
     "enter_email_hint_text": "Enter the email",
     "send_text": "Send"
+  },
+  "navbar": {
+    "home_text": "Home",
+    "search_text": "Search",
+    "profile_text": "Profile",
+    "more_text": "More"
   },
   "search": {
     "search_text": "Search..."

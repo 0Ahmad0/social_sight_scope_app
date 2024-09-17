@@ -80,7 +80,7 @@ class AppDrawerWidget extends StatelessWidget {
           DrawerItemWidget(
             text: tr(LocaleKeys.home_translate_language_text),
             icon: Icons.translate,
-            route: '',
+            route: Routes.translationRoute,
           ),
           DrawerItemWidget(
             text: tr(LocaleKeys.home_display_real_time_text),

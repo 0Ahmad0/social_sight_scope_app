@@ -38,6 +38,12 @@
     "enter_email_hint_text": "أدخل البريد الإلكتروني ",
     "send_text": "إرسال"
   },
+  "navbar": {
+    "home_text": "الرئيسية",
+    "search_text": "البحث",
+    "profile_text": "البروفايل",
+    "more_text": "المزيد"
+  },
   "search": {
     "search_text": "ابحث هنا..."
   },

@@ -5,6 +5,7 @@ import 'package:social_sight_scope/app/screens/home_screen.dart';
 import 'package:social_sight_scope/app/screens/login_screen.dart';
 import 'package:social_sight_scope/app/screens/navbar_screen.dart';
 import 'package:social_sight_scope/app/screens/signup_screen.dart';
+import 'package:social_sight_scope/app/screens/translation_screen.dart';
 
 import '../../app/screens/splash_screen.dart';
 import 'routes.dart';
@@ -36,9 +37,13 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => HomeScreen(),
         );
-  case Routes.addNewPersonRoute:
+      case Routes.addNewPersonRoute:
         return MaterialPageRoute(
           builder: (_) => AddNewPersonScreen(),
+        );
+      case Routes.translationRoute:
+        return MaterialPageRoute(
+          builder: (_) => TranslationScreen(),
         );
 
       default:

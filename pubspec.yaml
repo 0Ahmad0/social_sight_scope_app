@@ -52,6 +52,9 @@ dependencies:
   file_picker: ^8.0.5
   # Translation
   easy_localization: ^3.0.7
+  #translate texts in app
+  translator: ^1.0.0
+  country_flags: ^3.0.0
 
 
 

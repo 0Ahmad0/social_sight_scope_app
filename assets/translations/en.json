@@ -3,7 +3,7 @@
   "intro_text": "We provide innovative solutions that enable users to interact more fully with their surroundings",
   "get_started_text": "Get Started",
   "app_language_text": "App Language :",
-  "login":{
+  "login": {
     "welcome_back_text": "Welcome\nBack",
     "login_text": "Login",
     "email_text": "Email",
@@ -35,6 +35,12 @@
     "enter_email_text": "Enter the email address associated with your account.",
     "enter_email_hint_text": "Enter the email",
     "send_text": "Send"
+  },
+  "navbar": {
+    "home_text": "Home",
+    "search_text": "Search",
+    "profile_text": "Profile",
+    "more_text": "More"
   },
   "search": {
     "search_text": "Search..."

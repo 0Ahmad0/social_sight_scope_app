@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:social_sight_scope/app/screens/home_screen.dart';
@@ -5,6 +6,7 @@ import 'package:social_sight_scope/app/screens/more_screen.dart';
 import 'package:social_sight_scope/app/screens/profile_screen.dart';
 import 'package:social_sight_scope/app/screens/search_screen.dart';
 import 'package:social_sight_scope/core/utils/assets_manager.dart';
+import 'package:social_sight_scope/translations/locale_keys.g.dart';
 
 class ConstValueManager {
   /// Design Size
@@ -40,22 +42,22 @@ class ConstValueManager {
   static List<NavbarItem> navbarList = [
     NavbarItem(
       icon: Icons.home,
-      label: 'الرئيسية',
+      label: tr(LocaleKeys.navbar_home_text),
       screen: HomeScreen(),
     ),
     NavbarItem(
       icon: Icons.search,
-      label: 'البحث',
+      label: tr(LocaleKeys.navbar_search_text),
       screen: SearchScreen(),
     ),
     NavbarItem(
       icon: Icons.person,
-      label: 'البروفايل',
+      label: tr(LocaleKeys.navbar_profile_text),
       screen: ProfileScreen(),
     ),
     NavbarItem(
       icon: Icons.more_horiz,
-      label: 'المزيد',
+      label: tr(LocaleKeys.navbar_more_text),
       screen: MoreScreen(),
     ),
   ];

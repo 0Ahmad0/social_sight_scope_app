@@ -6,4 +6,5 @@ class Routes {
   static const String navbarRoute = '/navbarScreen';
   static const String homeRoute = '/homeScreen';
   static const String addNewPersonRoute = '/addNewPersonScreen';
+  static const String translationRoute = '/translationScreen';
 }
