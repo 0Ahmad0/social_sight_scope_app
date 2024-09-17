@@ -8,10 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../core/utils/color_manager.dart';
 import '../utils/string_manager.dart';
 
-var _borderTextFiled = ({Color color = ColorManager.primaryColor}) =>
-    OutlineInputBorder(
-        borderRadius: BorderRadius.circular(100.r),
-        borderSide: BorderSide(color: color));
+
 
 class AppTextField extends StatefulWidget {
   AppTextField(
@@ -69,6 +66,7 @@ class _AppTextFieldState extends State<AppTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: StyleManager.font14Regular(),
       inputFormatters: widget.filteringTextFormatterList,
       maxLines: widget.maxLine,
       minLines: widget.minLine,
@@ -87,13 +85,9 @@ class _AppTextFieldState extends State<AppTextField> {
       controller: widget.controller,
       cursorColor: ColorManager.primaryColor,
       decoration: InputDecoration(
-        focusedBorder: _borderTextFiled(),
-        border: _borderTextFiled(color: Colors.transparent),
-        enabledBorder: _borderTextFiled(color: Colors.transparent),
-        errorBorder: _borderTextFiled(color: ColorManager.errorColor),
+
         iconColor: ColorManager.grayColor,
-        filled: true,
-        fillColor: ColorManager.grayColor,
+
         errorMaxLines: 2,
         suffixIcon: widget.iconData != null
             ? Icon(
@@ -112,7 +106,7 @@ class _AppTextFieldState extends State<AppTextField> {
                     ))
                 : null,
         hintText: widget.hintText,
-        hintStyle: StyleManager.font16Regular(
+        hintStyle: StyleManager.font14Regular(
           color: ColorManager.hintTextColor,
         )
       ),

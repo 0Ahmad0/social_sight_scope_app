@@ -14,6 +14,9 @@ class AssetsManager {
   static const serviceProviderIMG = '$_pathImages/service_provider.png';
 
   ///<==== Svg ====>
+  static const arFlagIcon = '$_pathSVGs/ar_flag.svg';
+  static const enFlagIcon = '$_pathSVGs/en_flag.svg';
+
   static const eyePasswordIcon = '$_pathSVGs/eye.svg';
   static const arrowRightIcon = '$_pathSVGs/arrow_right.svg';
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ColorManager{
-  static const Color primaryColor =  Color(0xFF34A3A3);
+  static const Color primaryColor =  Color(0xFF07DF91);
+  static const Color scaffoldBackgroundColor =  Color(0xFF07DF91);
 
   static const Color hintTextColor =  Color(0xFFadacac);
   
@@ -19,7 +20,6 @@ class ColorManager{
   static Color unselectedItemColor =  Colors.grey.shade300;
 
   static Color shadowColor =  Color(0xffE0E0E0);
-
 
   static Color rateStarColor =  Color(0xfffdf301);
 

@@ -1,3 +1,52 @@
 {
-  "ok": "نعم"
+  "ok": "نعم",
+  "intro_text": "نقدم حلول مبتكرة تمكن المستخدمين من التفاعل بشكل أكثر اكتمالاً مع محيطهم",
+  "get_started_text": "ابدأ",
+  "app_language_text": "لغة التطبيق :",
+
+
+  "login":{
+    "welcome_back_text": "أهلا\nبعودتك",
+    "login_text": "تسجيل الدخول",
+    "email_text": "البريد الإلكتروني",
+    "enter_email_text": "أدخل البريد الإلكتروني",
+    "password_text": "كلمة المرور",
+    "enter_password_text": "أدخل كلمة المرور",
+    "forgot_password_text": "هل نسيت كلمة المرور ؟",
+    "do_not_have_account_text": "لا تمتلك حساب بعد ؟ ",
+    "signup_text": "إنشاء حساب"
+  },
+  "signup": {
+    "create_new_account": "إنشاء\nحساب جديد",
+    "create_account": "إنشاء حساب",
+    "name_text": "الاسم",
+    "enter_name_text": "أدخل الاسم",
+    "email_text": "البريد الإلكتروني",
+    "enter_email_text": "أدخل البريد الإلكتروني",
+    "password_text": "كلمة المرور",
+    "enter_password_text": "أدخل كلمة المرور",
+    "confirm_password_text": "تأكيد كلمة المرور",
+    "enter_confirm_password_text": "أدخل كلمة المرور مرة أخرى",
+    "have_already_account_text": "تمتلك بالفعل حساب ؟ ",
+    "login_text": "تسجيل الدخول"
+  },
+  "forgot_password": {
+    "forgot_password_text": "نسيت كلمة المرور",
+    "forgot_new_password_text": "نسيت\nكلمة المرور",
+    "we_will_send_email_to_rest_password_text": "سنرسل إليك عبر البريد الإلكتروني رابطًا لإعادة تعيين كلمة مرورك",
+    "enter_email_text": "أدخل عنوان البريد الإلكتروني المرتبط بحسابك",
+    "enter_email_hint_text": "أدخل البريد الإلكتروني ",
+    "send_text": "إرسال"
+  },
+  "search": {
+    "search_text": "ابحث هنا..."
+  },
+  "home": {
+    "welcome_text": "أهلاً ",
+    "logout_text": "تسجيل الخروج",
+    "recognize_face_text": "إضافة وجه جديد",
+    "translate_language_text": "ترجمة اللغات",
+    "display_real_time_text": "التحدث مع شات بوت",
+    "analyze_emotion_text": "تحليل المشاعر"
+  }
 }

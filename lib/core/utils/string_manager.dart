@@ -1,6 +1,6 @@
 class StringManager {
   /// Global
-  static const String appName = "Car Consultant";
+  static const String appName = "Social Sight Scope";
   static const String requiredField = "Filed Is Required";
   static const String loginText = 'Login';
   static const String signUpText = 'Signup';

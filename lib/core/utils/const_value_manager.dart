@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:social_sight_scope/app/screens/home_screen.dart';
+import 'package:social_sight_scope/app/screens/more_screen.dart';
+import 'package:social_sight_scope/app/screens/profile_screen.dart';
+import 'package:social_sight_scope/app/screens/search_screen.dart';
+import 'package:social_sight_scope/core/utils/assets_manager.dart';
 
 class ConstValueManager {
   /// Design Size
@@ -22,5 +26,57 @@ class ConstValueManager {
 
   static const String arLanguageCode = 'ar';
   static const String enLanguageCode = 'en';
+
+  static List<LocalLanguageModel> languageList = [
+    LocalLanguageModel(
+        text: 'العربية',
+        languageCode: arLanguageCode,
+        icon: AssetsManager.arFlagIcon),
+    LocalLanguageModel(
+        text: 'English',
+        languageCode: enLanguageCode,
+        icon: AssetsManager.enFlagIcon),
+  ];
+  static List<NavbarItem> navbarList = [
+    NavbarItem(
+      icon: Icons.home,
+      label: 'الرئيسية',
+      screen: HomeScreen(),
+    ),
+    NavbarItem(
+      icon: Icons.search,
+      label: 'البحث',
+      screen: SearchScreen(),
+    ),
+    NavbarItem(
+      icon: Icons.person,
+      label: 'البروفايل',
+      screen: ProfileScreen(),
+    ),
+    NavbarItem(
+      icon: Icons.more_horiz,
+      label: 'المزيد',
+      screen: MoreScreen(),
+    ),
+  ];
 }
 
+class NavbarItem {
+  final IconData icon;
+  final String label;
+  final Widget screen;
+
+  NavbarItem(
+      {required this.icon,
+      required this.label,
+      required this.screen});
+}
+
+class LocalLanguageModel {
+  final String text;
+  final String languageCode;
+  final String icon;
+
+  LocalLanguageModel(
+      {required this.text, required this.languageCode, required this.icon});
+}

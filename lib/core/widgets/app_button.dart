@@ -16,7 +16,9 @@ class AppButton extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style: StyleManager.font16Regular(color: ColorManager.whiteColor),
+          style: StyleManager.font16SemiBold(
+              color: ColorManager.whiteColor
+          ),
         ));
   }
 }

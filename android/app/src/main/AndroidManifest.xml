@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <application
-        android:label="social_sight_scope"
+        android:label="Social Sight Scope"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
