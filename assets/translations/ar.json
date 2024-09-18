@@ -1,10 +1,12 @@
 {
   "ok": "نعم",
+  "no": "لا",
+  "cancel": "إلغاء",
   "intro_text": "نقدم حلول مبتكرة تمكن المستخدمين من التفاعل بشكل أكثر اكتمالاً مع محيطهم",
   "get_started_text": "ابدأ",
   "app_language_text": "لغة التطبيق :",
-
-
+  "edit_text": "تعديل",
+  "save_text": "حفظ",
   "login":{
     "welcome_back_text": "أهلا\nبعودتك",
     "login_text": "تسجيل الدخول",
@@ -42,17 +44,45 @@
     "home_text": "الرئيسية",
     "search_text": "البحث",
     "profile_text": "البروفايل",
-    "more_text": "المزيد"
+    "chat_text": "المحادثات"
+  },
+  "chat": {
+    "chats_text": "المحادثات",
+    "add_new_text": "محادثة جديدة",
+    "message_text": "الرسالة..."
   },
   "search": {
     "search_text": "ابحث هنا..."
   },
   "home": {
     "welcome_text": "أهلاً ",
+    "are_you_sure_logout_text": "هل أنت متأكد من تسجيل خروجك",
     "logout_text": "تسجيل الخروج",
     "recognize_face_text": "إضافة وجه جديد",
     "translate_language_text": "ترجمة اللغات",
     "display_real_time_text": "التحدث مع شات بوت",
-    "analyze_emotion_text": "تحليل المشاعر"
+    "analyze_emotion_text": "تحليل المشاعر",
+    "show_information_text": "عرض المعلومات",
+    "send_message_text": "إرسال رسالة",
+    "setting_text": "الإعدادات",
+    "name_text": "الاسم الثلاثي",
+    "email_text": "البريد الإلكتروني",
+    "photo_text": "صورة البروفايل",
+    "pick_from_camera_text": "اختر من الكاميرا",
+    "pick_from_gallery_text": "اختر من المعرض",
+    "delete_photo_text": "حذف الصورة",
+    "are_you_sure_delete_account_text": "هل أنت متأكد من أنك تريد حذف حسابك ؟",
+    "delete_account_text": "حذف الحساب",
+    "contact_us_text": "تواصل معنا",
+    "write_your_message_text": "أكتب رسالتك هنا",
+    "social_media_account": "طرق أخرى للتواصل"
+  },
+  "contactUs": {
+    "facebook_text":"فيسبوك",
+    "instagram_text":"انستغرام",
+    "linkedin_text":"لينكد ان",
+    "telegram_text":"تيليغرام",
+    "whatsapp_text":"واتساب",
+    "x_text":"اكس"
   }
 }

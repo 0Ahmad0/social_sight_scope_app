@@ -1,8 +1,12 @@
 {
   "ok": "Ok",
+  "no": "No",
+  "cancel": "Cancel",
   "intro_text": "We provide innovative solutions that enable users to interact more fully with their surroundings",
   "get_started_text": "Get Started",
   "app_language_text": "App Language :",
+  "edit_text": "Edit",
+  "save_text": "Save",
   "login": {
     "welcome_back_text": "Welcome\nBack",
     "login_text": "Login",
@@ -40,17 +44,47 @@
     "home_text": "Home",
     "search_text": "Search",
     "profile_text": "Profile",
-    "more_text": "More"
+    "chat_text": "Chats"
+
+  },
+  "chat": {
+    "chats_text": "Chats",
+    "add_new_text": "New chat",
+    "message_text": "Message..."
   },
   "search": {
     "search_text": "Search..."
   },
   "home": {
     "welcome_text": "Welcome ",
+
+    "are_you_sure_logout_text": "Are you sure Logout ?",
     "logout_text": "Log out",
     "recognize_face_text": "Recognize face",
     "translate_language_text": "Translate Language",
     "display_real_time_text": "Display Real Time",
-    "analyze_emotion_text": "Analyze emotion"
+    "analyze_emotion_text": "Analyze emotion",
+    "show_information_text": "Show information",
+    "send_message_text": "Send message",
+    "setting_text": "Setting",
+    "name_text": "Name",
+    "email_text": "Email Address",
+    "photo_text": "Your Photo",
+    "pick_from_camera_text": "Pick from camera",
+    "pick_from_gallery_text": "Pick from Gallery",
+    "delete_photo_text": "Delete photo",
+    "are_you_sure_delete_account_text": "Are you sure Delete your account ?",
+    "delete_account_text": "Delete account",
+    "contact_us_text": "Contact us",
+    "write_your_message_text": "Type your message",
+    "social_media_account": "Social media Accounts"
+  },
+  "contactUs": {
+    "facebook_text":"Facebook",
+    "instagram_text":"Instagram",
+    "linkedin_text":"Linkedin",
+    "telegram_text":"Telegram",
+    "whatsapp_text":"Whatsapp",
+    "x_text":"X"
   }
 }

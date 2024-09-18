@@ -16,9 +16,13 @@ class CodegenLoader extends AssetLoader{
 
   static const Map<String,dynamic> ar = {
   "ok": "نعم",
+  "no": "لا",
+  "cancel": "إلغاء",
   "intro_text": "نقدم حلول مبتكرة تمكن المستخدمين من التفاعل بشكل أكثر اكتمالاً مع محيطهم",
   "get_started_text": "ابدأ",
   "app_language_text": "لغة التطبيق :",
+  "edit_text": "تعديل",
+  "save_text": "حفظ",
   "login": {
     "welcome_back_text": "أهلا\nبعودتك",
     "login_text": "تسجيل الدخول",
@@ -56,25 +60,57 @@ class CodegenLoader extends AssetLoader{
     "home_text": "الرئيسية",
     "search_text": "البحث",
     "profile_text": "البروفايل",
-    "more_text": "المزيد"
+    "chat_text": "المحادثات"
+  },
+  "chat": {
+    "chats_text": "المحادثات",
+    "add_new_text": "محادثة جديدة",
+    "message_text": "الرسالة..."
   },
   "search": {
     "search_text": "ابحث هنا..."
   },
   "home": {
     "welcome_text": "أهلاً ",
+    "are_you_sure_logout_text": "هل أنت متأكد من تسجيل خروجك",
     "logout_text": "تسجيل الخروج",
     "recognize_face_text": "إضافة وجه جديد",
     "translate_language_text": "ترجمة اللغات",
     "display_real_time_text": "التحدث مع شات بوت",
-    "analyze_emotion_text": "تحليل المشاعر"
+    "analyze_emotion_text": "تحليل المشاعر",
+    "show_information_text": "عرض المعلومات",
+    "send_message_text": "إرسال رسالة",
+    "setting_text": "الإعدادات",
+    "name_text": "الاسم الثلاثي",
+    "email_text": "البريد الإلكتروني",
+    "photo_text": "صورة البروفايل",
+    "pick_from_camera_text": "اختر من الكاميرا",
+    "pick_from_gallery_text": "اختر من المعرض",
+    "delete_photo_text": "حذف الصورة",
+    "are_you_sure_delete_account_text": "هل أنت متأكد من أنك تريد حذف حسابك ؟",
+    "delete_account_text": "حذف الحساب",
+    "contact_us_text": "تواصل معنا",
+    "write_your_message_text": "أكتب رسالتك هنا",
+    "social_media_account": "طرق أخرى للتواصل"
+  },
+  "contactUs": {
+    "facebook_text": "فيسبوك",
+    "instagram_text": "انستغرام",
+    "linkedin_text": "لينكد ان",
+    "telegram_text": "تيليغرام",
+    "whatsapp_text": "واتساب",
+    "x_text": "اكس"
   }
 };
 static const Map<String,dynamic> en = {
   "ok": "Ok",
+  "no": "No",
+  "cancel": "Cancel",
   "intro_text": "We provide innovative solutions that enable users to interact more fully with their surroundings",
   "get_started_text": "Get Started",
   "app_language_text": "App Language :",
+  "edit_text": "Edit",
+  "save_text": "Save",
   "login": {
     "welcome_back_text": "Welcome\nBack",
     "login_text": "Login",
@@ -112,18 +148,46 @@ static const Map<String,dynamic> en = {
     "home_text": "Home",
     "search_text": "Search",
     "profile_text": "Profile",
-    "more_text": "More"
+    "chat_text": "Chats"
+  },
+  "chat": {
+    "chats_text": "Chats",
+    "add_new_text": "New chat",
+    "message_text": "Message..."
   },
   "search": {
     "search_text": "Search..."
   },
   "home": {
     "welcome_text": "Welcome ",
+    "are_you_sure_logout_text": "Are you sure Logout ?",
     "logout_text": "Log out",
     "recognize_face_text": "Recognize face",
     "translate_language_text": "Translate Language",
     "display_real_time_text": "Display Real Time",
-    "analyze_emotion_text": "Analyze emotion"
+    "analyze_emotion_text": "Analyze emotion",
+    "show_information_text": "Show information",
+    "send_message_text": "Send message",
+    "setting_text": "Setting",
+    "name_text": "Name",
+    "email_text": "Email Address",
+    "photo_text": "Your Photo",
+    "pick_from_camera_text": "Pick from camera",
+    "pick_from_gallery_text": "Pick from Gallery",
+    "delete_photo_text": "Delete photo",
+    "are_you_sure_delete_account_text": "Are you sure Delete your account ?",
+    "delete_account_text": "Delete account",
+    "contact_us_text": "Contact us",
+    "write_your_message_text": "Type your message",
+    "social_media_account": "Social media Accounts"
+  },
+  "contactUs": {
+    "facebook_text": "Facebook",
+    "instagram_text": "Instagram",
+    "linkedin_text": "Linkedin",
+    "telegram_text": "Telegram",
+    "whatsapp_text": "Whatsapp",
+    "x_text": "X"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};

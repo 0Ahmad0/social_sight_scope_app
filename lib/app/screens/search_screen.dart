@@ -31,33 +31,34 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: AppPaddingWidget(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TextField(
-                controller: _searchController,
-                decoration: InputDecoration(
-                  hintText: tr(LocaleKeys.search_search_text),
-                  suffixIcon: _searchController.value.text.isNotEmpty
-                      ? IconButton(
-                          onPressed: () {
-                            _searchController.clear();
-                          },
-                          icon: Icon(Icons.highlight_remove),
-                        )
-                      : null,
-                  prefixIcon: IconButton(
-                    onPressed: () {
-                      // Handle search icon press
-                    },
-                    icon: Icon(Icons.search),
-                  ),
+      appBar: AppBar(
+        title: Text(tr(LocaleKeys.navbar_search_text)),
+      ),
+      body: AppPaddingWidget(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: tr(LocaleKeys.search_search_text),
+                suffixIcon: _searchController.value.text.isNotEmpty
+                    ? IconButton(
+                        onPressed: () {
+                          _searchController.clear();
+                        },
+                        icon: Icon(Icons.highlight_remove),
+                      )
+                    : null,
+                prefixIcon: IconButton(
+                  onPressed: () {
+                    // Handle search icon press
+                  },
+                  icon: Icon(Icons.search),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

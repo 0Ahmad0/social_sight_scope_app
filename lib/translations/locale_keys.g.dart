@@ -2,9 +2,13 @@
 
 abstract class  LocaleKeys {
   static const ok = 'ok';
+  static const no = 'no';
+  static const cancel = 'cancel';
   static const intro_text = 'intro_text';
   static const get_started_text = 'get_started_text';
   static const app_language_text = 'app_language_text';
+  static const edit_text = 'edit_text';
+  static const save_text = 'save_text';
   static const login_welcome_back_text = 'login.welcome_back_text';
   static const login_login_text = 'login.login_text';
   static const login_email_text = 'login.email_text';
@@ -38,16 +42,42 @@ abstract class  LocaleKeys {
   static const navbar_home_text = 'navbar.home_text';
   static const navbar_search_text = 'navbar.search_text';
   static const navbar_profile_text = 'navbar.profile_text';
-  static const navbar_more_text = 'navbar.more_text';
+  static const navbar_chat_text = 'navbar.chat_text';
   static const navbar = 'navbar';
+  static const chat_chats_text = 'chat.chats_text';
+  static const chat_add_new_text = 'chat.add_new_text';
+  static const chat_message_text = 'chat.message_text';
+  static const chat = 'chat';
   static const search_search_text = 'search.search_text';
   static const search = 'search';
   static const home_welcome_text = 'home.welcome_text';
+  static const home_are_you_sure_logout_text = 'home.are_you_sure_logout_text';
   static const home_logout_text = 'home.logout_text';
   static const home_recognize_face_text = 'home.recognize_face_text';
   static const home_translate_language_text = 'home.translate_language_text';
   static const home_display_real_time_text = 'home.display_real_time_text';
   static const home_analyze_emotion_text = 'home.analyze_emotion_text';
+  static const home_show_information_text = 'home.show_information_text';
+  static const home_send_message_text = 'home.send_message_text';
+  static const home_setting_text = 'home.setting_text';
+  static const home_name_text = 'home.name_text';
+  static const home_email_text = 'home.email_text';
+  static const home_photo_text = 'home.photo_text';
+  static const home_pick_from_camera_text = 'home.pick_from_camera_text';
+  static const home_pick_from_gallery_text = 'home.pick_from_gallery_text';
+  static const home_delete_photo_text = 'home.delete_photo_text';
+  static const home_are_you_sure_delete_account_text = 'home.are_you_sure_delete_account_text';
+  static const home_delete_account_text = 'home.delete_account_text';
+  static const home_contact_us_text = 'home.contact_us_text';
+  static const home_write_your_message_text = 'home.write_your_message_text';
+  static const home_social_media_account = 'home.social_media_account';
   static const home = 'home';
+  static const contactUs_facebook_text = 'contactUs.facebook_text';
+  static const contactUs_instagram_text = 'contactUs.instagram_text';
+  static const contactUs_linkedin_text = 'contactUs.linkedin_text';
+  static const contactUs_telegram_text = 'contactUs.telegram_text';
+  static const contactUs_whatsapp_text = 'contactUs.whatsapp_text';
+  static const contactUs_x_text = 'contactUs.x_text';
+  static const contactUs = 'contactUs';
 
 }

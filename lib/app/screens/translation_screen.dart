@@ -1,9 +1,8 @@
 import 'package:country_flags/country_flags.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_sight_scope/core/helpers/spacing.dart';
+import 'package:social_sight_scope/core/utils/color_manager.dart';
 import 'package:social_sight_scope/core/widgets/app_button.dart';
 import 'package:social_sight_scope/core/widgets/app_padding.dart';
 import 'package:translator/translator.dart';
@@ -47,8 +46,12 @@ class _TranslationScreenState extends State<TranslationScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    DropdownButton<String>(
+                    DropdownButtonFormField<String>(
                       value: _fromLanguage,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: ColorManager.primaryColor.withOpacity(.1)
+                      ),
                       onChanged: (String? newValue) {
                         setState(() {
                           _fromLanguage = newValue!;
@@ -62,7 +65,11 @@ class _TranslationScreenState extends State<TranslationScreen> {
                       label: 'أدخل النص',
                     ),
                     verticalSpace(10.h),
-                    DropdownButton<String>(
+                    DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                          filled: true,
+                          fillColor: ColorManager.errorColor.withOpacity(.1)
+                      ),
                       value: _toLanguage,
                       onChanged: (String? newValue) {
                         setState(() {

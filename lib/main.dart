@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_sight_scope/social_sight_scope_app.dart';
 
@@ -10,8 +11,10 @@ import 'translations/codegen_loader.g.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
 
+  Gemini.init(apiKey: ConstValueManager.geminiApi);
+
+  await EasyLocalization.ensureInitialized();
   /// To Fix Bug In Text Showing In Release Mode
   await ScreenUtil.ensureScreenSize();
 

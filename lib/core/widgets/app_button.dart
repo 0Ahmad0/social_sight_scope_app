@@ -11,14 +11,13 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            backgroundColor: ColorManager.primaryColor),
-        onPressed: onPressed,
-        child: Text(
-          text,
-          style: StyleManager.font16SemiBold(
-              color: ColorManager.whiteColor
-          ),
-        ));
+      style:
+          ElevatedButton.styleFrom(backgroundColor: ColorManager.primaryColor),
+      onPressed: onPressed,
+      child: Text(
+        text,
+        style: StyleManager.font16SemiBold(color: ColorManager.whiteColor),
+      ),
+    );
   }
 }

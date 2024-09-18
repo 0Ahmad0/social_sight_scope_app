@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:social_sight_scope/app/screens/chats_screen.dart';
+import 'package:social_sight_scope/app/screens/send_messages_screen.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 
 import 'core/routing/app_router.dart';
@@ -44,7 +46,6 @@ class SocialSightScopeApp extends StatelessWidget {
               ),
               appBarTheme: AppBarTheme(
                 centerTitle: true,
-                titleTextStyle: StyleManager.font18Medium(),
                 backgroundColor: ColorManager.whiteColor,
                 elevation: 0.0,
               ),
@@ -91,7 +92,10 @@ class SocialSightScopeApp extends StatelessWidget {
             ),
             initialRoute: Routes.initialRoute,
             onGenerateRoute: appRouter.generateRoute,
-            routes: {},
+              routes: {
+                Routes.chatRoute: (_)=>ChatsScreen(),
+                Routes.sendMessageRoute: (_)=>SendMessagesScreen(),
+              },
           );
         });
   }

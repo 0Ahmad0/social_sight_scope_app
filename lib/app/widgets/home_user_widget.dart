@@ -1,6 +1,11 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social_sight_scope/core/helpers/extensions.dart';
+import 'package:social_sight_scope/core/helpers/spacing.dart';
+import 'package:social_sight_scope/core/routing/routes.dart';
+import 'package:social_sight_scope/translations/locale_keys.g.dart';
 
 import '../../core/utils/color_manager.dart';
 import '../../core/utils/const_value_manager.dart';
@@ -74,7 +79,7 @@ class HomeUserWidget extends StatelessWidget {
                     ),
                     Text(
 
-                      'الوصف الوصف الوصف الوصف الوصف الوصف الوصف الوصف  ',
+                      'الوصف الوصف الوصف',
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
@@ -115,12 +120,38 @@ class HomeUserWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(100.r),
                         ),
                         child: Text(
-                          'عرض المعلومات',
+                          tr(LocaleKeys.home_show_information_text),
                           style: StyleManager.font12Regular(
                               color: ColorManager.blackColor),
                         ),
                       ),
-                    )
+                    ),
+                    verticalSpace(10.h),
+                    FadeInDown(
+                      child: InkWell(
+                        onTap: (){
+                          context.pushNamed(Routes.sendMessageRoute,arguments: {
+                            'index':index.toString()
+                          });
+                        },
+                        child: Hero(
+                          tag: index.toString(),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12.w, vertical: 10.h),
+                            decoration: BoxDecoration(
+                              color: ColorManager.whiteColor,
+                              borderRadius: BorderRadius.circular(100.r),
+                            ),
+                            child: Text(
+                              tr(LocaleKeys.home_send_message_text),
+                              style: StyleManager.font12Regular(
+                                  color: ColorManager.blackColor),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

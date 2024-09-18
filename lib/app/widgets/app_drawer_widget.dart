@@ -85,12 +85,22 @@ class AppDrawerWidget extends StatelessWidget {
           DrawerItemWidget(
             text: tr(LocaleKeys.home_display_real_time_text),
             icon: Icons.chat_outlined,
-            route: '',
+            route: Routes.geminiChatRoute,
           ),
           DrawerItemWidget(
             text: tr(LocaleKeys.home_analyze_emotion_text),
             icon: Icons.emoji_emotions_outlined,
-            route: '',
+            route: Routes.faceDetectionModeRoute,
+          ),
+          DrawerItemWidget(
+            text: tr(LocaleKeys.home_setting_text),
+            icon: Icons.settings_outlined,
+            route: Routes.settingRoute,
+          ),
+          DrawerItemWidget(
+            text: tr(LocaleKeys.home_contact_us_text),
+            icon: Icons.info_outline,
+            route: Routes.contactUsRoute,
           ),
         ],
       ),

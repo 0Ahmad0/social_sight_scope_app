@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "168004764421",
+    "project_id": "social-sight-scope",
+    "storage_bucket": "social-sight-scope.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168004764421:android:334322726207f6a7fdad6c",
+        "android_client_info": {
+          "package_name": "com.example.social_sight_scope"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaioY7XB_CKf1rYOPUzgmm1gesSO8aIgI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
