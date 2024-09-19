@@ -100,6 +100,9 @@ class CodegenLoader extends AssetLoader{
     "telegram_text": "تيليغرام",
     "whatsapp_text": "واتساب",
     "x_text": "اكس"
+  },
+  "detected_face": {
+    "pick_photo_text": "اختر صورة"
   }
 };
 static const Map<String,dynamic> en = {
@@ -188,6 +191,9 @@ static const Map<String,dynamic> en = {
     "telegram_text": "Telegram",
     "whatsapp_text": "Whatsapp",
     "x_text": "X"
+  },
+  "detected_face": {
+    "pick_photo_text": "Pick photo"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};

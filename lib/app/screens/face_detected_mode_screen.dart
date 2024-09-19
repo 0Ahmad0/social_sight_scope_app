@@ -1,7 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
+import 'package:social_sight_scope/core/dialogs/general_dialog.dart';
+import 'package:social_sight_scope/core/dialogs/type/loading_dialog.dart';
+import 'package:social_sight_scope/core/dialogs/type/picker_dialog.dart';
+import 'package:social_sight_scope/core/helpers/extensions.dart';
+import 'package:social_sight_scope/core/helpers/spacing.dart';
+import 'package:social_sight_scope/core/utils/color_manager.dart';
+import 'package:social_sight_scope/core/utils/style_manager.dart';
 import 'package:social_sight_scope/translations/locale_keys.g.dart';
 
 class FaceDetectedModeScreen extends StatefulWidget {
@@ -28,7 +38,6 @@ class _FaceDetectedModeScreenState extends State<FaceDetectedModeScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     detector.close();
   }
@@ -36,70 +45,65 @@ class _FaceDetectedModeScreenState extends State<FaceDetectedModeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(tr(LocaleKeys.home_analyze_emotion_text),),
+      ),
         body: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Visibility(
           visible: isVisible,
-          child: Container(
-            height: 200,
-            width: 200,
-            child: Image.asset(
-              moodImagePath,
-              fit: BoxFit.fill,
-            ),
+          child: Image.asset(
+            moodImagePath,
+            width: 200.w,
+            height: 200.h,
           ),
         ),
         Visibility(
           visible: isVisible,
-          child: Text(
-            "Your Girlfriend Mood is $moodDetail",
-            style: const TextStyle(
-              color: Colors.cyan,
-              fontSize: 30,
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                  text: "Your Mood is ",
+                  style: StyleManager.font30SemiBold(
+                      color: ColorManager.primaryColor
+                  )
+                ),
+                TextSpan(
+                  text: '$moodDetail'
+                )
+              ]
             ),
+            style: StyleManager.font20Bold(),
           ),
         ),
-        Center(
+        verticalSpace(20.h),
+        Align(
+          alignment: Alignment.center,
           child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: ColorManager.primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.r),
+              )
+            ),
             onPressed: () async {
-              showDialog(
-                context: context,
-                builder: (context) => Material(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ListTile(
-                        onTap: (){
-                          pickImage(ImageSource.camera);
-                        },
-                        leading: Icon(Icons.camera_alt_outlined),
-                        title: Text(tr(LocaleKeys.home_pick_from_camera_text)),
+              showCustomBottomSheet(context,
+                  child: PickerDialog(
+                      galleryPicker: () => pickImage(ImageSource.gallery),
+                      cameraPicker: () => pickImage(ImageSource.camera)));
 
-                      ),
-                      ListTile(
-                        onTap: (){
-                          pickImage(ImageSource.gallery);
-                        },
-                        leading: Icon(Icons.image_outlined),
-                        title: Text(tr(LocaleKeys.home_pick_from_gallery_text)),
-
-                      ),
-                    ],
-                  ),
-                ),
-              );
-              Future.delayed(Duration(seconds: 7), () {
+              await Future.delayed(Duration(seconds: 7), () {
                 extractData(pathOfImage);
               });
+              context.pop();
             },
-            child: const Text(
-              "Pick Image",
-              style: TextStyle(
-                color: Colors.cyan,
-                fontSize: 30,
+            child: Text(
+              tr(LocaleKeys.detected_face_pick_photo_text),
+              style: StyleManager.font18Medium(
+                color: ColorManager.blackColor
               ),
             ),
           ),
@@ -126,22 +130,22 @@ class _FaceDetectedModeScreenState extends State<FaceDetectedModeScreen> {
       if (prob! > 0.8) {
         setState(() {
           moodDetail = "Happy";
-          moodImagePath = "assets/happy.png";
+          moodImagePath = "assets/icons/happy.png";
         });
       } else if (prob > 0.3 && prob < 0.8) {
         setState(() {
           moodDetail = "Normal";
-          moodImagePath = "assets/meh.png";
+          moodImagePath = "assets/icons/meh.png";
         });
       } else if (prob > 0.06152385 && prob < 0.3) {
         setState(() {
           moodDetail = "Sad";
-          moodImagePath = "assets/sad.png";
+          moodImagePath = "assets/icons/sad.png";
         });
       } else {
         setState(() {
           moodDetail = "Angry";
-          moodImagePath = "assets/angry.png";
+          moodImagePath = "assets/icons/angry.png";
         });
       }
       setState(() {

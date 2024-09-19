@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
+import 'package:social_sight_scope/core/dialogs/type/edit_profile_dialog.dart';
 import 'package:social_sight_scope/core/widgets/app_padding.dart';
 import 'package:social_sight_scope/core/widgets/container_with_shadow_widget.dart';
 import 'package:social_sight_scope/translations/locale_keys.g.dart';
@@ -25,10 +27,10 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: showAppBar
           ? AppBar(
-        title: Text(
-          tr(LocaleKeys.navbar_profile_text),
-        ),
-      )
+              title: Text(
+                tr(LocaleKeys.navbar_profile_text),
+              ),
+            )
           : null,
       body: Center(
         child: SingleChildScrollView(
@@ -44,7 +46,10 @@ class ProfileScreen extends StatelessWidget {
                       Align(
                         alignment: AlignmentDirectional.centerEnd,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            showCustomBottomSheet(context,
+                                child: EditProfileDialog());
+                          },
                           child: Icon(Icons.edit_outlined),
                         ),
                       ),
@@ -56,62 +61,60 @@ class ProfileScreen extends StatelessWidget {
                             shape: BoxShape.circle,
                             boxShadow: [
                               BoxShadow(
-                                  color: ColorManager.blackColor.withOpacity(
-                                      .04),
+                                  color:
+                                      ColorManager.blackColor.withOpacity(.04),
                                   offset: Offset(0, 4.sp),
                                   blurRadius: 20.sp)
                             ]),
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                          Container(
-                          clipBehavior: Clip.hardEdge,
-                          width: 120.w,
-                          height: 120.h,
-                          decoration: BoxDecoration(
-                              color: ColorManager.blackColor,
-                              shape: BoxShape.circle),
-                          child: Image.network(
-                              'https://th.bing.com/th/id/OIP.T9JAjD62Bdbaqn5nyyPjwAHaHa?rs=1&pid=ImgDetMain',
-
-                          fit: BoxFit.cover,
+                            Container(
+                              clipBehavior: Clip.hardEdge,
+                              width: 120.w,
+                              height: 120.h,
+                              decoration: BoxDecoration(
+                                  color: ColorManager.blackColor,
+                                  shape: BoxShape.circle),
+                              child: Image.network(
+                                'https://th.bing.com/th/id/OIP.T9JAjD62Bdbaqn5nyyPjwAHaHa?rs=1&pid=ImgDetMain',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ],
                         ),
+                      ),
+                      verticalSpace(30.h),
+                      Text(
+                        tr(LocaleKeys.home_name_text),
+                        style: StyleManager.font14Medium(),
+                      ),
+                      verticalSpace(10.h),
+                      TextFormField(
+                        readOnly: true,
+                        controller: TextEditingController(text: 'ليلى الحربي'),
+                        decoration: InputDecoration(),
+                      ),
+                      verticalSpace(30.h),
+                      Text(
+                        tr(LocaleKeys.home_email_text),
+                        style: StyleManager.font14Medium(),
+                      ),
+                      verticalSpace(10.h),
+                      TextFormField(
+                        readOnly: true,
+                        controller:
+                            TextEditingController(text: 'laila@gmail.com'),
+                        decoration: InputDecoration(),
                       ),
                     ],
                   ),
                 ),
-                verticalSpace(30.h),
-                Text(
-                  tr(LocaleKeys.home_name_text),
-                  style: StyleManager.font14Medium(),
-                ),
-                verticalSpace(10.h),
-                TextFormField(
-                  readOnly: true,
-                  controller: TextEditingController(text: 'ليلى الحربي'),
-                  decoration: InputDecoration(),
-                ),
-                verticalSpace(30.h),
-                Text(
-                  tr(LocaleKeys.home_email_text),
-                  style: StyleManager.font14Medium(),
-                ),
-                verticalSpace(10.h),
-                TextFormField(
-                  readOnly: true,
-                  controller:
-                  TextEditingController(text: 'laila@gmail.com'),
-                  decoration: InputDecoration(),
-                ),
               ],
             ),
           ),
-
-          ],
         ),
       ),
-    ),)
-    ,
     );
   }
 }

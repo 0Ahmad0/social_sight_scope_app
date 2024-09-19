@@ -79,5 +79,7 @@ abstract class  LocaleKeys {
   static const contactUs_whatsapp_text = 'contactUs.whatsapp_text';
   static const contactUs_x_text = 'contactUs.x_text';
   static const contactUs = 'contactUs';
+  static const detected_face_pick_photo_text = 'detected_face.pick_photo_text';
+  static const detected_face = 'detected_face';
 
 }

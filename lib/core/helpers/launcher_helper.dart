@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../dialogs/loading_dialog.dart';
+import '../dialogs/type/loading_dialog.dart';
 
 class LauncherHelper {
   static void launchPhone(String number) async {
@@ -30,12 +30,11 @@ class LauncherHelper {
     try {
       final Uri websiteLaunchUri = Uri.parse(url);
       if (await canLaunchUrl(websiteLaunchUri)) {
-        LoadingDialog.show(context);
+
         await launchUrl(
           websiteLaunchUri,
           mode: LaunchMode.externalApplication,
         );
-        LoadingDialog.hide(context);
       } else {
         // LoadingDialog.hide(context);
         throw 'Could not launch $url';

@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
+import 'package:social_sight_scope/core/dialogs/type/logout_dialog.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 import 'package:social_sight_scope/core/helpers/sizer.dart';
 import 'package:social_sight_scope/core/routing/routes.dart';
@@ -69,7 +71,9 @@ class AppDrawerWidget extends StatelessWidget {
           DrawerItemWidget(
             text: tr(LocaleKeys.home_logout_text),
             icon: Icons.logout,
-            onTap: () {},
+            onTap: () {
+              showCustomBottomSheet(context, child: LogoutDialog());
+            },
             isColored: true,
           ),
           DrawerItemWidget(

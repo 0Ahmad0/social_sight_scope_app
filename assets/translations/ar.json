@@ -84,5 +84,8 @@
     "telegram_text":"تيليغرام",
     "whatsapp_text":"واتساب",
     "x_text":"اكس"
+  },
+  "detected_face": {
+    "pick_photo_text": "اختر صورة"
   }
 }

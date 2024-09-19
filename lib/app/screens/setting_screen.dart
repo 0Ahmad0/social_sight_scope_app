@@ -3,6 +3,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
+import 'package:social_sight_scope/core/dialogs/type/delete_account_dialog.dart';
 import 'package:social_sight_scope/core/utils/const_value_manager.dart';
 import 'package:social_sight_scope/core/widgets/app_padding.dart';
 import 'package:social_sight_scope/core/widgets/container_with_shadow_widget.dart';
@@ -57,7 +59,9 @@ class SettingScreen extends StatelessWidget {
                 horizontalPadding: 0,
                 verticalPadding: 8,
                 child: ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    showCustomBottomSheet(context, child: DeleteAccountDialog());
+                  },
                   dense: true,
                   trailing: Icon(
                     Icons.delete_outline,

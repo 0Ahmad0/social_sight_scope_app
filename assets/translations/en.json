@@ -86,5 +86,8 @@
     "telegram_text":"Telegram",
     "whatsapp_text":"Whatsapp",
     "x_text":"X"
+  },
+  "detected_face": {
+    "pick_photo_text": "Pick photo"
   }
 }

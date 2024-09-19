@@ -1,6 +1,6 @@
 const _pathImages = 'assets/images';
 const _pathSVGs = 'assets/icons';
-const _pathJsons = 'assets/json';
+const _pathLottie = 'assets/lottie';
 
 class AssetsManager {
   ///<==== Images ====>
@@ -27,8 +27,9 @@ class AssetsManager {
   static const eyePasswordIcon = '$_pathSVGs/eye.svg';
   static const arrowRightIcon = '$_pathSVGs/arrow_right.svg';
 
-
   ///<==== Json ====>
+
+  static const loadingJson = '$_pathLottie/loading.json';
 
 
 }
