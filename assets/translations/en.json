@@ -89,5 +89,14 @@
   },
   "detected_face": {
     "pick_photo_text": "Pick photo"
+  },
+  "add_person": {
+    "add_person_text": "Add new",
+    "pick_photo_text": "pick_photo",
+    "name_text": "Name",
+    "email_text": "Email address",
+    "phone_text": "Phone number",
+    "other_data_text": "Other details",
+    "please_type_line_text": "Please write the details in the following format:\n*Profession: Veterinarian\nAge: 23\nResidence: Saudi Arabia, Al Khobar, next to Drosh Cafe..."
   }
 }

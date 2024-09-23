@@ -68,7 +68,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
                     DropdownButtonFormField<String>(
                       decoration: InputDecoration(
                           filled: true,
-                          fillColor: ColorManager.errorColor.withOpacity(.1)
+                          fillColor: ColorManager.primaryColor.withOpacity(.1)
                       ),
                       value: _toLanguage,
                       onChanged: (String? newValue) {

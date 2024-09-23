@@ -81,5 +81,13 @@ abstract class  LocaleKeys {
   static const contactUs = 'contactUs';
   static const detected_face_pick_photo_text = 'detected_face.pick_photo_text';
   static const detected_face = 'detected_face';
+  static const add_person_add_person_text = 'add_person.add_person_text';
+  static const add_person_pick_photo_text = 'add_person.pick_photo_text';
+  static const add_person_name_text = 'add_person.name_text';
+  static const add_person_email_text = 'add_person.email_text';
+  static const add_person_phone_text = 'add_person.phone_text';
+  static const add_person_other_data_text = 'add_person.other_data_text';
+  static const add_person_please_type_line_text = 'add_person.please_type_line_text';
+  static const add_person = 'add_person';
 
 }

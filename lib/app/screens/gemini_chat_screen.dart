@@ -8,6 +8,7 @@ import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 
 class GeminiChatScreen extends StatefulWidget {
   const GeminiChatScreen({super.key});
@@ -19,36 +20,42 @@ class GeminiChatScreen extends StatefulWidget {
 class _GeminiChatScreenState extends State<GeminiChatScreen> {
   Gemini gemini = Gemini.instance;
   List<ChatMessage> messages = [];
-  ChatUser currentUser = ChatUser(id: "0", firstName: "User");
+  ChatUser currentUser = ChatUser(
+    id: "0",
+    firstName: "User",
+  );
   ChatUser geminiUser = ChatUser(
       id: "1",
       firstName: "GeminiUser",
-      profileImage:
-      "assets/angry.png");
+      profileImage: "assets/icons/app_icon.png");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        centerTitle: true,
         title: const Text(
           "Gemini 🚀",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       body: DashChat(
-          inputOptions: InputOptions(trailing: [
+        inputOptions: InputOptions(
+          trailing: [
             IconButton(
                 onPressed: sendMediaMsg,
                 icon: const Icon(
                   Icons.image,
-                  color: Colors.white,
-                ))
-          ]),
-          currentUser: currentUser,
-          onSend: _sendMessage,
-          messages: messages),
+                )),
+          ],
+        ),
+        currentUser: currentUser,
+        onSend: _sendMessage,
+        messages: messages,
+        messageOptions: MessageOptions(showTime: true),
+        messageListOptions: MessageListOptions(
+          showDateSeparator: true,
+          dateSeparatorFormat: DateFormat.yMMMd(),
+        ),
+      ),
     );
   }
 
@@ -69,7 +76,7 @@ class _GeminiChatScreenState extends State<GeminiChatScreen> {
         if (lastMessage != null && lastMessage.user == geminiUser) {
           lastMessage = messages.removeAt(0);
           String response = event.content?.parts
-              ?.fold("", (prev, curr) => "$prev ${curr.text}") ??
+                  ?.fold("", (prev, curr) => "$prev ${curr.text}") ??
               "";
           lastMessage.text += response;
           setState(() {
@@ -77,7 +84,7 @@ class _GeminiChatScreenState extends State<GeminiChatScreen> {
           });
         } else {
           String response = event.content?.parts?.fold(
-              "", (previous, current) => "$previous ${current.text}") ??
+                  "", (previous, current) => "$previous ${current.text}") ??
               "";
           ChatMessage chatMessage = ChatMessage(
               user: geminiUser, createdAt: DateTime.now(), text: response);

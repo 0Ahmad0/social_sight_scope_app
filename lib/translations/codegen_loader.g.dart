@@ -103,6 +103,15 @@ class CodegenLoader extends AssetLoader{
   },
   "detected_face": {
     "pick_photo_text": "اختر صورة"
+  },
+  "add_person": {
+    "add_person_text": "إضافة جديدة",
+    "pick_photo_text": "اختر صورة",
+    "name_text": "الاسم",
+    "email_text": "الايميل",
+    "phone_text": "رقم الموبايل",
+    "other_data_text": "معلومات أخرى",
+    "please_type_line_text": "الرجاء كتابة التفاصيل على الشكل:\n*المهنة : طبيب بيطري\nالعمر 23\nالسكن: السعودية الخبر بجانب كافيه دروش..."
   }
 };
 static const Map<String,dynamic> en = {
@@ -194,6 +203,15 @@ static const Map<String,dynamic> en = {
   },
   "detected_face": {
     "pick_photo_text": "Pick photo"
+  },
+  "add_person": {
+    "add_person_text": "Add new",
+    "pick_photo_text": "pick_photo",
+    "name_text": "Name",
+    "email_text": "Email address",
+    "phone_text": "Phone number",
+    "other_data_text": "Other details",
+    "please_type_line_text": "Please write the details in the following format:\n*Profession: Veterinarian\nAge: 23\nResidence: Saudi Arabia, Al Khobar, next to Drosh Cafe..."
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};

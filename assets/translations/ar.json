@@ -87,5 +87,14 @@
   },
   "detected_face": {
     "pick_photo_text": "اختر صورة"
+  },
+  "add_person": {
+    "add_person_text": "إضافة جديدة",
+    "pick_photo_text": "اختر صورة",
+    "name_text": "الاسم",
+    "email_text": "الايميل",
+    "phone_text": "رقم الموبايل",
+    "other_data_text": "معلومات أخرى",
+    "please_type_line_text": "الرجاء كتابة التفاصيل على الشكل:\n*المهنة : طبيب بيطري\nالعمر 23\nالسكن: السعودية الخبر بجانب كافيه دروش..."
   }
 }
