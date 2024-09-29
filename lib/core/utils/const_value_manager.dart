@@ -62,26 +62,7 @@ class ConstValueManager {
         icon: AssetsManager.enFlagIcon),
   ];
   static List<NavbarItem> navbarList = [
-    NavbarItem(
-      icon: Icons.home,
-      label: tr(LocaleKeys.navbar_home_text),
-      screen: HomeScreen(),
-    ),
-    NavbarItem(
-      icon: Icons.search,
-      label: tr(LocaleKeys.navbar_search_text),
-      screen: SearchScreen(),
-    ),
-    NavbarItem(
-      icon: Icons.person,
-      label: tr(LocaleKeys.navbar_profile_text),
-      screen: ProfileScreen(),
-    ),
-    NavbarItem(
-      icon: Icons.chat_outlined,
-      label: tr(LocaleKeys.navbar_chat_text),
-      screen: ChatsScreen(),
-    ),
+
   ];
 }
 

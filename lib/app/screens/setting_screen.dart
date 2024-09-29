@@ -47,10 +47,6 @@ class SettingScreen extends StatelessWidget {
                         .map((e) => ListTile(
                               onTap: () {
                                 context.setLocale(Locale(e.languageCode));
-                                context.pushAndRemoveUntil(Routes.navbarRoute,
-                                    predicate: (Route<dynamic> route) {
-                                  return false;
-                                });
                               },
                               dense: true,
                               leading: SvgPicture.asset(e.icon),
