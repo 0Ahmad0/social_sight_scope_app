@@ -59,7 +59,7 @@ class CodegenLoader extends AssetLoader{
   "navbar": {
     "home_text": "الرئيسية",
     "search_text": "البحث",
-    "profile_text": "البروفايل",
+    "profile_text": "الصفحة الشخصية",
     "chat_text": "المحادثات"
   },
   "chat": {

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:social_sight_scope/core/utils/color_manager.dart';
 import 'package:social_sight_scope/core/utils/const_value_manager.dart';
@@ -13,6 +14,7 @@ class _NavbarScreenState extends State<NavbarScreen> {
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    ConstValueManager.navbarList;
     return Scaffold(
       body:ConstValueManager.navbarList[_currentIndex].screen,
       bottomNavigationBar: BottomNavigationBar(

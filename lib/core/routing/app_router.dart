@@ -9,6 +9,7 @@ import 'package:social_sight_scope/app/screens/login_screen.dart';
 import 'package:social_sight_scope/app/screens/navbar_screen.dart';
 import 'package:social_sight_scope/app/screens/send_messages_screen.dart';
 import 'package:social_sight_scope/app/screens/setting_screen.dart';
+import 'package:social_sight_scope/app/screens/show_person_details_screen.dart';
 import 'package:social_sight_scope/app/screens/signup_screen.dart';
 import 'package:social_sight_scope/app/screens/translation_screen.dart';
 
@@ -74,6 +75,10 @@ class AppRouter {
       case Routes.geminiChatRoute:
         return MaterialPageRoute(
           builder: (_) => GeminiChatScreen(),
+        );
+ case Routes.showPersonDetailsRoute:
+        return MaterialPageRoute(
+          builder: (_) => ShowPersonDetailsScreen(),
         );
 
       default:

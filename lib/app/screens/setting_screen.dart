@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
 import 'package:social_sight_scope/core/dialogs/type/delete_account_dialog.dart';
+import 'package:social_sight_scope/core/helpers/extensions.dart';
+import 'package:social_sight_scope/core/routing/routes.dart';
 import 'package:social_sight_scope/core/utils/const_value_manager.dart';
 import 'package:social_sight_scope/core/widgets/app_padding.dart';
 import 'package:social_sight_scope/core/widgets/container_with_shadow_widget.dart';
@@ -45,6 +47,10 @@ class SettingScreen extends StatelessWidget {
                         .map((e) => ListTile(
                               onTap: () {
                                 context.setLocale(Locale(e.languageCode));
+                                context.pushAndRemoveUntil(Routes.navbarRoute,
+                                    predicate: (Route<dynamic> route) {
+                                  return false;
+                                });
                               },
                               dense: true,
                               leading: SvgPicture.asset(e.icon),
@@ -60,7 +66,8 @@ class SettingScreen extends StatelessWidget {
                 verticalPadding: 8,
                 child: ListTile(
                   onTap: () {
-                    showCustomBottomSheet(context, child: DeleteAccountDialog());
+                    showCustomBottomSheet(context,
+                        child: DeleteAccountDialog());
                   },
                   dense: true,
                   trailing: Icon(

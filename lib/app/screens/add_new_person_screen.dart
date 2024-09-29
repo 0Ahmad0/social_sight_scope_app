@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 import 'package:social_sight_scope/core/helpers/sizer.dart';
 import 'package:social_sight_scope/core/helpers/spacing.dart';
@@ -27,11 +28,12 @@ class _AddNewPersonScreenState extends State<AddNewPersonScreen> {
   final ImagePicker _imagePicker = ImagePicker();
   XFile? _image;
 
-  _pickPhoto() async {
-    final result = await _imagePicker.pickImage(source: ImageSource.gallery);
+  _pickPhoto(ImageSource source) async {
+    final result = await _imagePicker.pickImage(source: source);
     if (result != null) {
       _image = XFile(result.path);
       setState(() {});
+      context.pop();
     }
   }
 
@@ -95,9 +97,59 @@ class _AddNewPersonScreenState extends State<AddNewPersonScreen> {
                             ),
                             child: TextButton.icon(
                               onPressed: () {
-                                personSetState(() {
-                                  _pickPhoto();
-                                });
+                                showCustomBottomSheet(context,
+                                    isDismissible: true,
+                                    child: AppPaddingWidget(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.stretch,
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Align(
+                                            alignment: AlignmentDirectional
+                                                .centerStart,
+                                            child: TextButton.icon(
+                                              onPressed: () {
+                                                personSetState(() {
+                                                  _pickPhoto(
+                                                      ImageSource.camera);
+                                                });
+                                              },
+                                              label: Text(
+                                                tr(LocaleKeys
+                                                    .home_pick_from_camera_text),
+                                                style: StyleManager
+                                                    .font14Regular(),
+                                              ),
+                                              icon: Icon(
+                                                Icons.camera_alt_outlined,
+                                                  color: ColorManager.primaryColor
+                                              ),
+                                            ),
+                                          ),
+                                          Align(
+                                            alignment: AlignmentDirectional
+                                                .centerStart,
+                                            child: TextButton.icon(
+                                              onPressed: () {
+                                                _pickPhoto(ImageSource.camera);
+                                              },
+                                              label: Text(
+                                                tr(LocaleKeys
+                                                    .home_pick_from_gallery_text),
+                                                style: StyleManager
+                                                    .font14Regular(),
+                                              ),
+                                              icon: Icon(
+                                                Icons.photo_camera_back,
+                                                color:
+                                                    ColorManager.primaryColor,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ));
                               },
                               icon: Icon(
                                 Icons.photo_camera_back_outlined,
@@ -144,9 +196,7 @@ class _AddNewPersonScreenState extends State<AddNewPersonScreen> {
             )),
             verticalSpace(10.h),
             AppButton(
-              onPressed: () {
-
-              },
+              onPressed: () {},
               text: tr(LocaleKeys.add_person_add_person_text),
             )
           ],

@@ -112,17 +112,22 @@ class HomeUserWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FadeInUp(
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 12.w, vertical: 10.h),
-                        decoration: BoxDecoration(
-                          color: ColorManager.whiteColor,
-                          borderRadius: BorderRadius.circular(100.r),
-                        ),
-                        child: Text(
-                          tr(LocaleKeys.home_show_information_text),
-                          style: StyleManager.font12Regular(
-                              color: ColorManager.blackColor),
+                      child: InkWell(
+                        onTap: (){
+                          context.pushNamed(Routes.showPersonDetailsRoute);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 12.w, vertical: 10.h),
+                          decoration: BoxDecoration(
+                            color: ColorManager.whiteColor,
+                            borderRadius: BorderRadius.circular(100.r),
+                          ),
+                          child: Text(
+                            tr(LocaleKeys.home_show_information_text),
+                            style: StyleManager.font12Regular(
+                                color: ColorManager.blackColor),
+                          ),
                         ),
                       ),
                     ),

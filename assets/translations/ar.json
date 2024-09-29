@@ -7,6 +7,7 @@
   "app_language_text": "لغة التطبيق :",
   "edit_text": "تعديل",
   "save_text": "حفظ",
+
   "login":{
     "welcome_back_text": "أهلا\nبعودتك",
     "login_text": "تسجيل الدخول",
@@ -43,7 +44,7 @@
   "navbar": {
     "home_text": "الرئيسية",
     "search_text": "البحث",
-    "profile_text": "البروفايل",
+    "profile_text": "الصفحة الشخصية",
     "chat_text": "المحادثات"
   },
   "chat": {

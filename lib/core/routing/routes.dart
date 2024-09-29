@@ -13,4 +13,5 @@ class Routes {
   static const String geminiChatRoute = '/geminiChatScreen';
   static const String sendMessageRoute = '/sendMessageScreen';
   static const String chatRoute = '/chatScreen';
+  static const String showPersonDetailsRoute = '/showPersonDetailsScreen';
 }

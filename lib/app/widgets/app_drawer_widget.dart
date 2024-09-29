@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
@@ -68,43 +69,56 @@ class AppDrawerWidget extends StatelessWidget {
               )
             ],
           ),
-          DrawerItemWidget(
-            text: tr(LocaleKeys.home_logout_text),
-            icon: Icons.logout,
-            onTap: () {
-              showCustomBottomSheet(context, child: LogoutDialog());
-            },
-            isColored: true,
-          ),
-          DrawerItemWidget(
-            text: tr(LocaleKeys.home_recognize_face_text),
-            icon: Icons.face,
-            route: Routes.addNewPersonRoute,
-          ),
-          DrawerItemWidget(
-            text: tr(LocaleKeys.home_translate_language_text),
-            icon: Icons.translate,
-            route: Routes.translationRoute,
-          ),
-          DrawerItemWidget(
-            text: tr(LocaleKeys.home_display_real_time_text),
-            icon: Icons.chat_outlined,
-            route: Routes.geminiChatRoute,
-          ),
-          DrawerItemWidget(
-            text: tr(LocaleKeys.home_analyze_emotion_text),
-            icon: Icons.emoji_emotions_outlined,
-            route: Routes.faceDetectionModeRoute,
-          ),
-          DrawerItemWidget(
-            text: tr(LocaleKeys.home_setting_text),
-            icon: Icons.settings_outlined,
-            route: Routes.settingRoute,
-          ),
-          DrawerItemWidget(
-            text: tr(LocaleKeys.home_contact_us_text),
-            icon: Icons.info_outline,
-            route: Routes.contactUsRoute,
+
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+
+
+
+                  DrawerItemWidget(
+                    text: tr(LocaleKeys.home_logout_text),
+                    icon: Icons.logout,
+                    onTap: () {
+                      showCustomBottomSheet(context, child: LogoutDialog());
+                    },
+                    isColored: true,
+                  ),
+            
+                  DrawerItemWidget(
+                    text: tr(LocaleKeys.home_recognize_face_text),
+                    icon: Icons.face,
+                    route: Routes.addNewPersonRoute,
+                  ),
+                  DrawerItemWidget(
+                    text: tr(LocaleKeys.home_translate_language_text),
+                    icon: Icons.translate,
+                    route: Routes.translationRoute,
+                  ),
+                  DrawerItemWidget(
+                    text: tr(LocaleKeys.home_display_real_time_text),
+                    icon: Icons.chat_outlined,
+                    route: Routes.geminiChatRoute,
+                  ),
+                  DrawerItemWidget(
+                    text: tr(LocaleKeys.home_analyze_emotion_text),
+                    icon: Icons.emoji_emotions_outlined,
+                    route: Routes.faceDetectionModeRoute,
+                  ),
+                  DrawerItemWidget(
+                    text: tr(LocaleKeys.home_setting_text),
+                    icon: Icons.settings_outlined,
+                    route: Routes.settingRoute,
+                  ),
+                  DrawerItemWidget(
+                    text: tr(LocaleKeys.home_contact_us_text),
+                    icon: Icons.info_outline,
+                    route: Routes.contactUsRoute,
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
