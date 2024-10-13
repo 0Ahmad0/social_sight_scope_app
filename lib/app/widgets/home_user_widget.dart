@@ -2,8 +2,13 @@ import 'package:animate_do/animate_do.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:social_sight_scope/app/controllers/person_controller.dart';
+import 'package:social_sight_scope/app/widgets/picture/circle_user_picture_widget.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 import 'package:social_sight_scope/core/helpers/spacing.dart';
+import 'package:social_sight_scope/core/models/person_model.dart';
 import 'package:social_sight_scope/core/routing/routes.dart';
 import 'package:social_sight_scope/translations/locale_keys.g.dart';
 
@@ -15,11 +20,12 @@ class HomeUserWidget extends StatelessWidget {
   const HomeUserWidget({
     super.key,
     required this.currentIndex,
-    required this.index,
+    required this.index, required this.person,
   });
 
   final int currentIndex;
   final int index;
+  final PersonModel person;
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +51,18 @@ class HomeUserWidget extends StatelessWidget {
                   height: 80.h,
                   clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(shape: BoxShape.circle),
-                  child: Image.network(
-                    width: 80.w,
-                    height: 80.h,
-                    'https://news.griffith.edu.au/wp-content/uploads/2014/09/GriffithGC-5745-682x1024.jpg',
-                  ),
+                  child:
+    CircleUserPictureWidget(
+    path:person.imagePath,
+    name:person.name,
+
+    radius:80.sp ,
+    )
+                  // Image.network(
+                  //   width: 80.w,
+                  //   height: 80.h,
+                  //   'https://news.griffith.edu.au/wp-content/uploads/2014/09/GriffithGC-5745-682x1024.jpg',
+                  // ),
                 ),
               ),
               Container(
@@ -68,7 +81,8 @@ class HomeUserWidget extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        'محمد عبد الله ',
+                        person.name??'',
+                        // 'محمد عبد الله ',
                         maxLines: 1,
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
@@ -78,8 +92,8 @@ class HomeUserWidget extends StatelessWidget {
                       ),
                     ),
                     Text(
-
-                      'الوصف الوصف الوصف',
+                      person.description??'',
+                      // 'الوصف الوصف الوصف',
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       overflow: TextOverflow.ellipsis,
@@ -114,7 +128,9 @@ class HomeUserWidget extends StatelessWidget {
                     FadeInUp(
                       child: InkWell(
                         onTap: (){
-                          context.pushNamed(Routes.showPersonDetailsRoute);
+                          // context.pushNamed(Routes.showPersonDetailsRoute);
+                          Get.put(PersonController()).person=person;
+                          Get.toNamed(Routes.addNewPersonRoute,arguments: {'person':person});
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(

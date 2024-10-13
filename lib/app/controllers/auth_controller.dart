@@ -59,7 +59,8 @@ class AuthController extends GetxController {
 
   validatePassword(String value) {
     RegExp regex =
-        RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+        // RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+    RegExp(r'^(?=.*).{8,}$');
     if (value.isEmpty) {
       return StringManager.requiredField;
     }
@@ -72,7 +73,18 @@ class AuthController extends GetxController {
       return null;
     }
   }
+  validateConfirmPassword(String value,String password) {
+    if (value.isEmpty) {
+      return StringManager.requiredField;
+    }
+    else if (value!=password) {
 
+      return 'Not Match';
+    }
+    else {
+      return null;
+    }
+  }
   String? validatePhoneNumber(String value) {
     if (value.isEmpty) {
       return StringManager.requiredField;
@@ -149,7 +161,7 @@ class AuthController extends GetxController {
         ;
         await profileController.getUser(context);
         // context.pop();
-        Get.back();
+        ConstantsWidgets.closeDialog();
         if (profileController.currentUser.value?.isAdmin ?? false)
           context.pushAndRemoveUntil(Routes.navbarRoute,
               predicate: (Route<dynamic> route) => false);
@@ -165,7 +177,8 @@ class AuthController extends GetxController {
     } on FirebaseAuthException catch (e) {
       String errorMessage = FirebaseFun.findTextToast(e.code);
       // Get.back();
-      context.pop();
+      // context.pop();
+      ConstantsWidgets.closeDialog();
       ConstantsWidgets.TOAST(null, textToast: errorMessage, state: false);
       // Get.snackbar(
       //     AppString.message_failure,
@@ -236,6 +249,59 @@ class AuthController extends GetxController {
     }
   }
 
+  Future<void> deleteAccount(BuildContext context) async {
+
+    try {
+      ConstantsWidgets.showLoading();
+    await auth
+          .currentUser?.delete()
+          .timeout(FirebaseFun.timeOut);
+      await FirebaseFirestore.instance
+          .collection(FirebaseConstants.collectionUser)
+          .doc(await AppStorage.storageRead(key: AppConstants.uidKEY))
+          .delete();
+       signOut(context);
+
+
+    } on FirebaseAuthException catch (e) {
+      String errorMessage = FirebaseFun.findTextToast(e.code);
+      context.pop();
+      ConstantsWidgets.TOAST(null, textToast: errorMessage, state: false);
+
+    }
+  }
+
+
+  Future<void> forgetPassword(BuildContext context) async {
+    String email = emailController.value.text;
+    try {
+
+      await auth
+          .sendPasswordResetEmail(email: email)
+          .timeout(FirebaseFun.timeOut)
+          .then((value) async {
+        ConstantsWidgets.TOAST(null,
+            textToast: StringManager.message_successfully_send_rest_password_to_email, state: true);
+        // Get.snackbar(
+        //     AppString.message_success,
+        //     AppString.message_successful_login,
+        //     backgroundColor: ColorManager.successColor
+        // );
+        ConstantsWidgets.closeDialog();
+        Get.back();
+      });
+    } on FirebaseAuthException catch (e) {
+      String errorMessage = FirebaseFun.findTextToast(e.code);
+      ConstantsWidgets.closeDialog();
+      ConstantsWidgets.TOAST(null, textToast: errorMessage, state: false);
+      // Get.snackbar(
+      //     AppString.message_failure,
+      //    errorMessage,
+      //     backgroundColor: ColorManager.errorColor
+      // );
+    }
+  }
+
   _generateUserNameByName(String name) {
     name = name.toLowerCase();
     List<String> names = name.trim().split(' ');
@@ -282,10 +348,10 @@ class AuthController extends GetxController {
 
   @override
   void onInit() {
-    _initPageView();
-    passwordController.addListener(() {
-      update();
-    });
+    // _initPageView();
+    // passwordController.addListener(() {
+    //   update();
+    // });
 
     super.onInit();
   }

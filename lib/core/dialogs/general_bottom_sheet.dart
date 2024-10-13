@@ -10,8 +10,8 @@ showCustomBottomSheet(
   bool isScrollControlled = true,
   bool enableDrag = true,
   bool isDismissible = false,
-}) {
-  showModalBottomSheet(
+}) async {
+  await showModalBottomSheet(
     backgroundColor: color,
     isScrollControlled: isScrollControlled,
     enableDrag: enableDrag,

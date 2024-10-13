@@ -7,10 +7,11 @@ import '../../../translations/locale_keys.g.dart';
 
 class PickerDialog extends StatelessWidget {
   const PickerDialog(
-      {super.key, required this.galleryPicker, required this.cameraPicker});
+      {super.key, required this.galleryPicker, required this.cameraPicker, this.deletePicker});
 
   final VoidCallback galleryPicker;
   final VoidCallback cameraPicker;
+  final VoidCallback? deletePicker;
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +22,15 @@ class PickerDialog extends StatelessWidget {
           title: Text(
             tr(LocaleKeys.detected_face_pick_photo_text),
             style: StyleManager.font16SemiBold(),
+          ),
+        ),
+
+        Visibility(
+          visible: deletePicker!=null,
+          child: ListTile(
+            onTap: deletePicker,
+            leading: Icon(Icons.delete),
+            title: Text(tr(LocaleKeys.home_delete_photo_text)),
           ),
         ),
         ListTile(

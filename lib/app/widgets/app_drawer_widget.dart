@@ -2,6 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:social_sight_scope/app/widgets/picture/cach_picture_widget.dart';
+import 'package:social_sight_scope/app/widgets/picture/profile_picture_widget.dart';
 import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
 import 'package:social_sight_scope/core/dialogs/type/logout_dialog.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
@@ -11,6 +16,8 @@ import 'package:social_sight_scope/core/utils/color_manager.dart';
 import 'package:social_sight_scope/core/utils/style_manager.dart';
 import 'package:social_sight_scope/translations/locale_keys.g.dart';
 
+import '../controllers/person_controller.dart';
+import '../controllers/profile_controller.dart';
 import 'drawer_item_widget.dart';
 
 class AppDrawerWidget extends StatelessWidget {
@@ -20,10 +27,14 @@ class AppDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(PersonController()).person=null;
     return Drawer(
       width: getWidth(context) - 40.w,
       child: Column(
         children: [
+      GetBuilder<ProfileController>(
+      init: Get.put(ProfileController()),
+    builder: (controller) =>
           UserAccountsDrawerHeader(
             decoration: BoxDecoration(
               color: ColorManager.primaryColor,
@@ -40,7 +51,8 @@ class AppDrawerWidget extends StatelessWidget {
                         style: StyleManager.font20SemiBold(
                             color: ColorManager.whiteColor)),
                     TextSpan(
-                      text: 'ليلى',
+                      text:(controller.currentUser.value?.name??  ''),
+
                       style: StyleManager.font14Regular().copyWith(),
                     ),
                   ],
@@ -48,15 +60,43 @@ class AppDrawerWidget extends StatelessWidget {
               ),
             ),
             accountEmail: Text(
-              'laila@gmail.com',
+             (controller.currentUser.value?.email??  ''),
+              // 'laila@gmail.com',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: StyleManager.font16Regular(),
             ),
-            currentAccountPicture: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://th.bing.com/th/id/OIP.T9JAjD62Bdbaqn5nyyPjwAHaHa?rs=1&pid=ImgDetMain'),
-            ),
+            currentAccountPicture:   CacheNetworkImage(
+                photoUrl:  // "https://th.bing.com/th/id/R.1b3a7efcd35343f64a9ae6ad5b5f6c52?rik=HGgUvyvtG4jbAQ&riu=http%3a%2f%2fwww.riyadhpost.live%2fuploads%2f7341861f7f918c109dfc33b73d8356b2.jpg&ehk=3Z4lADOKvoivP8Tbzi2Y56dxNrCWd0r7w7CHQEvpuUg%3d&risl=&pid=ImgRaw&r=0",
+    // 'https://th.bing.com/th/id/OIP.T9JAjD62Bdbaqn5nyyPjwAHaHa?rs=1&pid=ImgDetMain',
+                '${ controller.currentUser.value?.photoUrl??''}',
+                // width: radius.sp,
+                // height: radius.sp,
+                // boxFit: BoxFit.cover,
+                waitWidget: WidgetProfilePicture(
+                  name: controller.currentUser.value?.name??'',
+                  // radius: radius.sp,
+
+                  backgroundColor: ColorManager.whiteColor,
+                  textColor: ColorManager.primaryColor,
+                ),
+                errorWidget: WidgetProfilePicture(
+                  name: controller.currentUser.value?.name??'',
+                  // radius: radius.sp,
+
+
+                  backgroundColor: ColorManager.whiteColor,
+                  textColor: ColorManager.primaryColor,
+                ),
+              ),
+            // currentAccountPicture: CircleAvatar(
+            //   backgroundImage:
+
+              // NetworkImage(
+              //     (controller.currentUser.value?.photoUrl??  ''),
+              //     // 'https://th.bing.com/th/id/OIP.T9JAjD62Bdbaqn5nyyPjwAHaHa?rs=1&pid=ImgDetMain'
+              // ),
+            // ),
             otherAccountsPictures: [
               IconButton(
                 onPressed: () {
@@ -68,7 +108,7 @@ class AppDrawerWidget extends StatelessWidget {
                 ),
               )
             ],
-          ),
+          )),
 
           Expanded(
             child: SingleChildScrollView(

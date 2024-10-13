@@ -7,6 +7,7 @@ import '../../core/local/storage.dart';
 import '../../core/routing/routes.dart';
 import '../../core/utils/app_constant.dart';
 
+import '../../core/widgets/constants_widgets.dart';
 import 'auth_controller.dart';
 import 'profile_controller.dart';
 
@@ -29,13 +30,17 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
 
 
    if((await AppStorage.storageRead(key: AppConstants.rememberMe) as bool?) ??false){
-      // ConstantsWidgets.showLoading(context);
+      ConstantsWidgets.showLoading();
 
       ProfileController profileController=Get.put(ProfileController());
 
       await profileController.getUser(context);
+      ConstantsWidgets.closeDialog();
       // await ProfileController.instance.getUser();
-      if(profileController.currentUser.value?.isAdmin??false)
+
+      if(profileController.currentUser.value==null);
+        // context.pushAndRemoveUntil(Routes.loginRoute, predicate: (Route<dynamic> route) =>false);
+      else if(profileController.currentUser.value?.isAdmin??false)
         context.pushAndRemoveUntil(Routes.navbarRoute, predicate: (Route<dynamic> route) =>false);
 
       // Get.offAll(NavbarScreen());
@@ -44,10 +49,11 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
         context.pushAndRemoveUntil(Routes.navbarRoute, predicate: (Route<dynamic> route) =>false);
 
       // Get.offAll(NavbarScreen());
-    }else
-     context.pushAndRemoveUntil(Routes.loginRoute, predicate: (Route<dynamic> route) =>false);
+    }else{
+     // context.pushAndRemoveUntil(Routes.loginRoute, predicate: (Route<dynamic> route) =>false);
 
     // Get.offAll(LoginScreen());
+     }
   }
   Future<void> _initSplash(BuildContext context) async {
     await AppStorage.init();

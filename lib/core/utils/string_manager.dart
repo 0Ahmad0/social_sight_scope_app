@@ -120,10 +120,13 @@ class StringManager {
   static const String startChatText =
       'Start a conversation with proofreaders,\nand get the job done';
 
+  static const infoNotFacesYet = 'لا يوجد وجوه متاحة';
+
 
   ///<Message Firebase>//
   static const message_success = "Success";
   static const message_failure = "Failure";
   static const message_successful_login = "Successful login";
   static const message_successfully_update = "Successful update";
+  static const message_successfully_send_rest_password_to_email= "Successful Send Rest Password To Email";
 }

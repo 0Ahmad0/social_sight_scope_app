@@ -72,7 +72,8 @@ class ConstantsWidgets {
       );
 
   }
-  static closeDialog(BuildContext context) async {
+  static closeDialog() async {
+    if(Get.isDialogOpen??true)
     Get.close(1);
 
   }

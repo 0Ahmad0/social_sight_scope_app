@@ -6,6 +6,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../core/models/person_model.dart';
 import '../../../core/models/user_model.dart';
 import '../../../core/utils/color_manager.dart';
 import 'firebase_constants.dart';
@@ -75,37 +76,37 @@ class FirebaseFun {
   }
 
 
-  ///Lesson
-  // static addLesson( {required LessonModel lesson}) async {
-  //   final result= await FirebaseFirestore.instance.collection(FirebaseConstants.collectionLesson)
-  //       .doc(lesson.id)
-  //       .set(lesson.toJson()).then(onValueAddLesson).catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
-  //   return result;
-  // }
-  // static deleteLesson( {required String idLesson}) async {
-  //   final result =await FirebaseFirestore.instance
-  //       .collection(FirebaseConstants.collectionLesson)
-  //       .doc(idLesson)
-  //       .delete().then(onValueDeleteLesson)
-  //       .catchError(onError);
-  //   return result;
-  // }
-  // static updateLesson( {required LessonModel lesson}) async {
-  //   final result= await FirebaseFirestore.instance.collection(FirebaseConstants.collectionLesson).doc(
-  //       lesson.id
-  //   ).update(lesson.toJson()).then(onValueUpdateLesson).catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
-  //   return result;
-  // }
-  // static fetchLessonsByIdUser({required String idUser})  async {
-  //   final result=await FirebaseFirestore.instance.collection(FirebaseConstants.collectionLesson)
-  //       .where('idUser',isEqualTo: idUser)
-  //       .get()
-  //       .then((onValueFetchLessons))
-  //       .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
-  //   return result;
-  // }
-  //
-  //
+  ///Person
+  static addPerson( {required PersonModel person}) async {
+    final result= await FirebaseFirestore.instance.collection(FirebaseConstants.collectionPerson)
+        .doc(person.id)
+        .set(person.toJson()).then(onValueAddPerson).catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+  static deleteLesson( {required String idLesson}) async {
+    final result =await FirebaseFirestore.instance
+        .collection(FirebaseConstants.collectionPerson)
+        .doc(idLesson)
+        .delete().then(onValueDeleteLesson)
+        .catchError(onError);
+    return result;
+  }
+  static updatePerson( {required PersonModel person}) async {
+    final result= await FirebaseFirestore.instance.collection(FirebaseConstants.collectionPerson).doc(
+        person.id
+    ).update(person.toJson()).then(onValueUpdatePerson).catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+  static fetchPersonsByIdUser({required String idUser})  async {
+    final result=await FirebaseFirestore.instance.collection(FirebaseConstants.collectionPerson)
+        .where('idUser',isEqualTo: idUser)
+        .get()
+        .then((onValueFetchPersons))
+        .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+
+
 
 
 
@@ -169,24 +170,24 @@ class FirebaseFun {
 
 
 
-  static Future<Map<String,dynamic>>onValueAddLesson(value) async{
+  static Future<Map<String,dynamic>>onValueAddPerson(value) async{
     return {
       'status':true,
-      'message':'Lesson successfully add',
+      'message':'Person successfully add',
       'body':{},//{'id':value.id}
     };
   }
-  static Future<Map<String,dynamic>>onValueUpdateLesson(value) async{
+  static Future<Map<String,dynamic>>onValueUpdatePerson(value) async{
     return {
       'status':true,
-      'message':'Lesson successfully update',
+      'message':'Person successfully update',
       'body':{}
     };
   }
-  static Future<Map<String,dynamic>> onValueFetchLessons(value) async{
+  static Future<Map<String,dynamic>> onValueFetchPersons(value) async{
     return {
       'status':true,
-      'message':'Lesson successfully fetch',
+      'message':'Person successfully fetch',
       'body':value.docs
     };
   }

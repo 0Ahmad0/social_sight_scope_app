@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
 import 'package:social_sight_scope/core/dialogs/type/edit_profile_dialog.dart';
 import 'package:social_sight_scope/core/widgets/app_padding.dart';
@@ -13,8 +15,10 @@ import '../../core/utils/assets_manager.dart';
 import '../../core/utils/color_manager.dart';
 import '../../core/utils/string_manager.dart';
 import '../../core/utils/style_manager.dart';
+import '../controllers/profile_controller.dart';
+import '../widgets/picture/circle_profile_widget.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({
     super.key,
     this.showAppBar = true,
@@ -23,9 +27,22 @@ class ProfileScreen extends StatelessWidget {
   final bool showAppBar;
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+ late  ProfileController profileController;
+  @override
+  void initState() {
+     profileController = Get.put(ProfileController());
+
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
+    profileController.refresh(withImage: true);
     return Scaffold(
-      appBar: showAppBar
+      appBar: widget.showAppBar
           ? AppBar(
               title: Text(
                 tr(LocaleKeys.navbar_profile_text),
@@ -38,6 +55,10 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               children: [
                 verticalSpace(26.h),
+                GetBuilder<ProfileController>(
+                    init: profileController,
+                    // init: profileController,
+                    builder: (controller) =>
                 ContainerWidthShadowWidget(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,16 +67,19 @@ class ProfileScreen extends StatelessWidget {
                       Align(
                         alignment: AlignmentDirectional.centerEnd,
                         child: GestureDetector(
-                          onTap: () {
-                            showCustomBottomSheet(context,
+                          onTap: () async {
+                           await  showCustomBottomSheet(context,
                                 child: EditProfileDialog());
+                           setState(() {
+
+                           });
                           },
                           child: Icon(Icons.edit_outlined),
                         ),
                       ),
                       Container(
                         width: double.maxFinite,
-                        padding: EdgeInsets.all(10.sp),
+                        // padding: EdgeInsets.all(10.sp),
                         decoration: BoxDecoration(
                             color: ColorManager.whiteColor,
                             shape: BoxShape.circle,
@@ -69,18 +93,23 @@ class ProfileScreen extends StatelessWidget {
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
-                            Container(
-                              clipBehavior: Clip.hardEdge,
-                              width: 120.w,
-                              height: 120.h,
-                              decoration: BoxDecoration(
-                                  color: ColorManager.blackColor,
-                                  shape: BoxShape.circle),
-                              child: Image.network(
-                                'https://th.bing.com/th/id/OIP.T9JAjD62Bdbaqn5nyyPjwAHaHa?rs=1&pid=ImgDetMain',
-                                fit: BoxFit.cover,
-                              ),
-                            ),
+                        CircleProfilePictureWidget(
+                        path:null,
+
+                          radius:120.sp ,
+                        )
+                            // Container(
+                            //   clipBehavior: Clip.hardEdge,
+                            //   width: 120.w,
+                            //   height: 120.h,
+                            //   decoration: BoxDecoration(
+                            //       color: ColorManager.blackColor,
+                            //       shape: BoxShape.circle),
+                            //   child: Image.network(
+                            //     'https://th.bing.com/th/id/OIP.T9JAjD62Bdbaqn5nyyPjwAHaHa?rs=1&pid=ImgDetMain',
+                            //     fit: BoxFit.cover,
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
@@ -92,7 +121,8 @@ class ProfileScreen extends StatelessWidget {
                       verticalSpace(10.h),
                       TextFormField(
                         readOnly: true,
-                        controller: TextEditingController(text: 'ليلى الحربي'),
+                        controller:profileController.nameController,
+                        // controller: TextEditingController(text: 'ليلى الحربي'),
                         decoration: InputDecoration(),
                       ),
                       verticalSpace(30.h),
@@ -103,13 +133,13 @@ class ProfileScreen extends StatelessWidget {
                       verticalSpace(10.h),
                       TextFormField(
                         readOnly: true,
-                        controller:
-                            TextEditingController(text: 'laila@gmail.com'),
+                        controller:profileController.emailController,
+                        // controller: TextEditingController(text: 'laila@gmail.com'),
                         decoration: InputDecoration(),
                       ),
                     ],
                   ),
-                ),
+                )),
               ],
             ),
           ),

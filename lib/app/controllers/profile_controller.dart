@@ -77,13 +77,13 @@ class ProfileController extends GetxController {
     String name=nameController.value.text;
         String email=emailController.value.text;
     try {
-      // ConstantsWidgets.showLoading(context);
+      ConstantsWidgets.showLoading();
       if(profileImage!=null){
         imagePath=await FirebaseFun.uploadImage(image: XFile(profileImage!.path));
         profileImage=null;
       }
       if(email!=currentUser.value?.email)
-        auth.currentUser?.verifyBeforeUpdateEmail(email);
+        await auth.currentUser?.verifyBeforeUpdateEmail(email);
         // auth.currentUser?.updateEmail();
       // if(password!=''&&password!=null)
       //   auth.currentUser?.updatePassword(password!);
@@ -108,6 +108,7 @@ class ProfileController extends GetxController {
         currentUser.value=userModel;
         update();
 
+        ConstantsWidgets.closeDialog();
         Get.back();
         Get.snackbar(
             StringManager.message_success,
@@ -123,7 +124,7 @@ class ProfileController extends GetxController {
       String errorMessage;
       // errorMessage = "An unexpected error occurred. Please try again later.";
       errorMessage = "An unexpected error occurred. Please try again later.";
-
+      ConstantsWidgets.closeDialog();
       Get.back();
       Get.snackbar(
           StringManager.message_failure,
@@ -134,6 +135,13 @@ class ProfileController extends GetxController {
   }
   Future<void> getUser(BuildContext context) async {
     try {
+
+      if(auth.currentUser==null);
+      await auth
+          .signInWithEmailAndPassword(email: await AppStorage.storageRead(key: AppConstants.EMAIL_KEY), password: await AppStorage.storageRead(key: AppConstants.PASSWORD_KEY))
+          .timeout(FirebaseFun.timeOut)
+          .then((value) async {});
+
       await FirebaseFirestore.instance
           .collection('Users')
           .doc(FirebaseAuth.instance.currentUser?.uid ??
@@ -141,6 +149,7 @@ class ProfileController extends GetxController {
           .get()
           .then((value){
         currentUser.value=UserModel.fromJson(value);
+        refresh();
         update();
         // Get.snackbar(
         //     AppString.message_success,
@@ -184,14 +193,18 @@ class ProfileController extends GetxController {
   Future<void> pickPhoto(ImageSource source) async {
     Get.back();
     final XFile? result = await _imagePicker.pickImage(source: source);
+
     if (result != null) {
       profileImage = File(result.path);
+
       update();
+
     }
   }
 
 
-  void refresh(){
+  void refresh({withImage=false}){
+
     nameController = TextEditingController(text: currentUser.value?.name);
     userNameController = TextEditingController(text: currentUser.value?.userName);
     emailController = TextEditingController(text: currentUser.value?.email);
@@ -199,6 +212,8 @@ class ProfileController extends GetxController {
 
     // gender=genders.firstWhereOrNull((element)=>element==currentUser.value?.gender);
     // genderController = TextEditingController();
+    if(withImage)
+    profileImage=null;
     imagePath=currentUser.value?.photoUrl;
   }
   @override
