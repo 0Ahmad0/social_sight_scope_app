@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../core/utils/color_manager.dart';
 import '../../core/utils/string_manager.dart';
 import '../../core/widgets/constants_widgets.dart';
+import '../../translations/locale_keys.g.dart';
 import 'firebase/firebase_fun.dart';
 
 
@@ -50,7 +52,8 @@ class ForgetPasswordController extends GetxController {
     try{
       if(difference.inMinutes.abs()<countMinutes)
 
-        throw FirebaseAuthException(code: 'لا يمكنك اعادة ارسال الرمز حتى انتهاء المدة'+'  ('+'${(countMinutes-difference.inMinutes.abs()).abs()} دقيقة'+')');
+        throw FirebaseAuthException(code:  tr(LocaleKeys.message_cannot_resend_code)+'  ('+'${(countMinutes-difference.inMinutes.abs()).abs()} ${ tr(LocaleKeys.minute)}'+')');
+        // throw FirebaseAuthException(code: 'لا يمكنك اعادة ارسال الرمز حتى انتهاء المدة'+'  ('+'${(countMinutes-difference.inMinutes.abs()).abs()} دقيقة'+')');
 
       ConstantsWidgets.showLoading();
       await FirebaseFun.auth.sendPasswordResetEmail(email: emailController.value.text)
@@ -64,7 +67,8 @@ class ForgetPasswordController extends GetxController {
        ConstantsWidgets.closeDialog();
        Get.back();
        ConstantsWidgets.TOAST(null,
-           textToast: StringManager.message_successfully_send_rest_password_to_email, state: true);
+           // textToast: StringManager.message_successfully_send_rest_password_to_email, state: true);
+           textToast:  tr(LocaleKeys.message_successful_send_reset_password), state: true);
      });
      dateTime=DateTime.now();
       refreshTime();

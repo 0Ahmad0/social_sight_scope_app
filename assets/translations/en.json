@@ -7,6 +7,12 @@
   "app_language_text": "App Language :",
   "edit_text": "Edit",
   "save_text": "Save",
+  "minute": "minute",
+  "empty_data": "Empty data",
+
+  "error": "Error",
+  "update": "Update",
+
   "login": {
     "welcome_back_text": "Welcome\nBack",
     "login_text": "Login",
@@ -77,7 +83,8 @@
     "delete_account_text": "Delete account",
     "contact_us_text": "Contact us",
     "write_your_message_text": "Type your message",
-    "social_media_account": "Social media Accounts"
+    "social_media_account": "Social media Accounts",
+    "no_faces_available": "No faces available"
   },
   "contactUs": {
     "facebook_text":"Facebook",
@@ -98,5 +105,36 @@
     "phone_text": "Phone number",
     "other_data_text": "Other details",
     "please_type_line_text": "Please write the details in the following format:\n*Profession: Veterinarian\nAge: 23\nResidence: Saudi Arabia, Al Khobar, next to Drosh Cafe..."
-  }
+  },
+  "message": {
+  "error_try_again_later": "An error occurred, please try again later",
+  "session_deleted_successfully": "Session deleted successfully",
+  "account_created_successfully": "Account created successfully",
+  "face_fetched_successfully": "Face fetched successfully",
+  "face_updated_successfully": "Face updated successfully",
+  "face_added_successfully": "Face added successfully",
+  "users_fetched_successfully": "Users' information fetched successfully",
+  "login_successful": "Login successful",
+  "incorrect_user": "Incorrect user",
+  "invalid_email": "Invalid email",
+  "weak_password": "Weak password, it must be at least 6 characters long and include a capital letter, a small letter, and a punctuation mark",
+  "email_already_in_use": "This email is already in use.",
+  "too_many_attempts": "Too many login attempts, please try again later.",
+  "user_not_activated": "User not activated",
+  "invalid_email_input": "The email entered is invalid",
+  "incorrect_password": "Incorrect password",
+  "no_user_for_email": "No user exists for this email.",
+    "password_mismatch": "Passwords do not match",
+    "invalid_number": "The entered number is incorrect",
+    "invalid_email_entry": "The entered email is incorrect",
+    "password_length": "Password must be 8 characters or more",
+    "success": "Success",
+    "failure": "Failure",
+    "successful_login": "Successful login",
+    "successful_update": "Successful update",
+    "successful_send_reset_password": "Successful Send Reset Password To Email",
+    "cannot_resend_code": "You cannot resend the code until the time expires",
+    "unexpected_error": "An unexpected error occurred. Please try again later."
+
+}
 }

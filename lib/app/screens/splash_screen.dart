@@ -90,6 +90,8 @@ class _SplashScreenState extends State<SplashScreen> {
                           value: e.text,
                           onTap: () {
                             context.setLocale(Locale(e.languageCode));
+                            var locale = Locale(e.languageCode);
+                            Get.updateLocale(locale);
                           },
                         ))
                     .toList(),

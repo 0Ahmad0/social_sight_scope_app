@@ -1,5 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,7 @@ import '../../core/routing/routes.dart';
 import '../../core/utils/app_constant.dart';
 import '../../core/utils/string_manager.dart';
 import '../../core/widgets/constants_widgets.dart';
+import '../../translations/locale_keys.g.dart';
 import 'firebase/firebase_constants.dart';
 import 'firebase/firebase_fun.dart';
 import 'profile_controller.dart';
@@ -66,7 +68,7 @@ class AuthController extends GetxController {
     }
     else if (!regex.hasMatch(value)) {
 
-
+      return    tr(LocaleKeys.message_password_length);
       return 'Error';
     }
     else {
@@ -79,6 +81,7 @@ class AuthController extends GetxController {
     }
     else if (value!=password) {
 
+      return  tr(LocaleKeys.message_password_mismatch);
       return 'Not Match';
     }
     else {
@@ -90,6 +93,7 @@ class AuthController extends GetxController {
       return StringManager.requiredField;
     } else {
       if (!value.isPhoneNumber) {
+        return  tr(LocaleKeys.message_invalid_number);
         return 'Error';
       } else {
         return null;
@@ -102,6 +106,7 @@ class AuthController extends GetxController {
       return StringManager.requiredField;
     } else {
       if (!value.isEmail) {
+        return  tr(LocaleKeys.message_invalid_email_entry);
         return 'Error';
       } else {
         return null;
@@ -140,7 +145,8 @@ class AuthController extends GetxController {
           .timeout(FirebaseFun.timeOut)
           .then((value) async {
         ConstantsWidgets.TOAST(null,
-            textToast: StringManager.message_successful_login, state: true);
+            textToast: tr(LocaleKeys.message_successful_login), state: true);
+            // textToast: StringManager.message_successful_login, state: true);
         // Get.snackbar(
         //     AppString.message_success,
         //     AppString.message_successful_login,
@@ -281,7 +287,8 @@ class AuthController extends GetxController {
           .timeout(FirebaseFun.timeOut)
           .then((value) async {
         ConstantsWidgets.TOAST(null,
-            textToast: StringManager.message_successfully_send_rest_password_to_email, state: true);
+            textToast:  tr(LocaleKeys.message_successful_send_reset_password), state: true);
+            // textToast: StringManager.message_successfully_send_rest_password_to_email, state: true);
         // Get.snackbar(
         //     AppString.message_success,
         //     AppString.message_successful_login,

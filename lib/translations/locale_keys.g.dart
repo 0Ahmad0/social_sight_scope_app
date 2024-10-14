@@ -9,6 +9,10 @@ abstract class  LocaleKeys {
   static const app_language_text = 'app_language_text';
   static const edit_text = 'edit_text';
   static const save_text = 'save_text';
+  static const minute = 'minute';
+  static const empty_data = 'empty_data';
+  static const error = 'error';
+  static const update = 'update';
   static const login_welcome_back_text = 'login.welcome_back_text';
   static const login_login_text = 'login.login_text';
   static const login_email_text = 'login.email_text';
@@ -71,6 +75,7 @@ abstract class  LocaleKeys {
   static const home_contact_us_text = 'home.contact_us_text';
   static const home_write_your_message_text = 'home.write_your_message_text';
   static const home_social_media_account = 'home.social_media_account';
+  static const home_no_faces_available = 'home.no_faces_available';
   static const home = 'home';
   static const contactUs_facebook_text = 'contactUs.facebook_text';
   static const contactUs_instagram_text = 'contactUs.instagram_text';
@@ -89,5 +94,34 @@ abstract class  LocaleKeys {
   static const add_person_other_data_text = 'add_person.other_data_text';
   static const add_person_please_type_line_text = 'add_person.please_type_line_text';
   static const add_person = 'add_person';
+  static const message_error_try_again_later = 'message.error_try_again_later';
+  static const message_session_deleted_successfully = 'message.session_deleted_successfully';
+  static const message_account_created_successfully = 'message.account_created_successfully';
+  static const message_face_fetched_successfully = 'message.face_fetched_successfully';
+  static const message_face_updated_successfully = 'message.face_updated_successfully';
+  static const message_face_added_successfully = 'message.face_added_successfully';
+  static const message_users_fetched_successfully = 'message.users_fetched_successfully';
+  static const message_login_successful = 'message.login_successful';
+  static const message_incorrect_user = 'message.incorrect_user';
+  static const message_invalid_email = 'message.invalid_email';
+  static const message_weak_password = 'message.weak_password';
+  static const message_email_already_in_use = 'message.email_already_in_use';
+  static const message_too_many_attempts = 'message.too_many_attempts';
+  static const message_user_not_activated = 'message.user_not_activated';
+  static const message_invalid_email_input = 'message.invalid_email_input';
+  static const message_incorrect_password = 'message.incorrect_password';
+  static const message_no_user_for_email = 'message.no_user_for_email';
+  static const message_password_mismatch = 'message.password_mismatch';
+  static const message_invalid_number = 'message.invalid_number';
+  static const message_invalid_email_entry = 'message.invalid_email_entry';
+  static const message_password_length = 'message.password_length';
+  static const message_success = 'message.success';
+  static const message_failure = 'message.failure';
+  static const message_successful_login = 'message.successful_login';
+  static const message_successful_update = 'message.successful_update';
+  static const message_successful_send_reset_password = 'message.successful_send_reset_password';
+  static const message_cannot_resend_code = 'message.cannot_resend_code';
+  static const message_unexpected_error = 'message.unexpected_error';
+  static const message = 'message';
 
 }

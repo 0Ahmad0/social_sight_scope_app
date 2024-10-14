@@ -234,7 +234,8 @@ class _AddNewPersonScreenState extends State<AddNewPersonScreen> {
 
                           if (val!.trim().isEmpty) return StringManager.requiredField;
                           else if (!val.isPhoneNumber) {
-                            return 'الرقم المدخل ليس صحيحا';
+                            // return 'الرقم المدخل ليس صحيحا';
+                            return  tr(LocaleKeys.message_invalid_number);
                           }
                           return null;
                         }
@@ -268,7 +269,7 @@ class _AddNewPersonScreenState extends State<AddNewPersonScreen> {
                     controller.updatePerson(context,
                         image: _image);
                   },
-                  text: tr(LocaleKeys.add_person_add_person_text))
+                  text: tr(LocaleKeys.update))
               // AppButton(
               //   onPressed: () {},
               //   text: tr(LocaleKeys.add_person_add_person_text),

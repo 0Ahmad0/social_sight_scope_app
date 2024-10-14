@@ -23,59 +23,57 @@ class CircleUserPictureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          border: Border.all(
-            color: ColorManager.primaryColor,
-            width: 1.5,
-          ),
-          shape: BoxShape.circle),
-      child: Container(
+
         width: radius?.sp,
         height: radius?.sp,
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(shape: BoxShape.circle),
-        child:
 
-        // controller.profileImage== null? Image.network(
-        //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS37JAC_YF1l4Nih5_FG15JI_EuFVRvVsveZKTGBNsmfqyeLGzTKMWY-prH8CGsLkxbb4&usqp=CAU',
-        //   width: radius.sp,
-        //   height: radius.sp,
-        //   fit: BoxFit.cover,
-        // )
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(shape: BoxShape.circle,
+        border: Border.all(
+        color: ColorManager.primaryColor,
+        width: 1.5,
+      )),
+      child:
 
-        path==null||true? CacheNetworkImage(
-          photoUrl:   // "https://th.bing.com/th/id/R.1b3a7efcd35343f64a9ae6ad5b5f6c52?rik=HGgUvyvtG4jbAQ&riu=http%3a%2f%2fwww.riyadhpost.live%2fuploads%2f7341861f7f918c109dfc33b73d8356b2.jpg&ehk=3Z4lADOKvoivP8Tbzi2Y56dxNrCWd0r7w7CHQEvpuUg%3d&risl=&pid=ImgRaw&r=0",
-          '${ path}',
-          width: radius?.sp,
-          height: radius?.sp,
-          boxFit: BoxFit.cover,
-          waitWidget: WidgetProfilePicture(
-            name: name??'',
-            radius: radius?.sp,
-            backgroundColor: ColorManager.whiteColor,
-            textColor: ColorManager.primaryColor,
-          ),
-          errorWidget: WidgetProfilePicture(
-            name: name??'',
-            radius: radius?.sp,
+      // controller.profileImage== null? Image.network(
+      //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS37JAC_YF1l4Nih5_FG15JI_EuFVRvVsveZKTGBNsmfqyeLGzTKMWY-prH8CGsLkxbb4&usqp=CAU',
+      //   width: radius.sp,
+      //   height: radius.sp,
+      //   fit: BoxFit.cover,
+      // )
 
-            backgroundColor: ColorManager.whiteColor,
-            textColor: ColorManager.primaryColor,
-          ),
-        )
-            :
-        Image.network(
-          width: radius?.sp,
-          height: radius?.sp,
-          'https://news.griffith.edu.au/wp-content/uploads/2014/09/GriffithGC-5745-682x1024.jpg',
-        )
-        // Image.file(
-        //   File(path!),
-        //   width: radius?.sp,
-        //   height: radius?.sp,
-        //   fit: BoxFit.cover,
-        // ),
-      ),
+      path==null||true? CacheNetworkImage(
+        photoUrl:   // "https://th.bing.com/th/id/R.1b3a7efcd35343f64a9ae6ad5b5f6c52?rik=HGgUvyvtG4jbAQ&riu=http%3a%2f%2fwww.riyadhpost.live%2fuploads%2f7341861f7f918c109dfc33b73d8356b2.jpg&ehk=3Z4lADOKvoivP8Tbzi2Y56dxNrCWd0r7w7CHQEvpuUg%3d&risl=&pid=ImgRaw&r=0",
+        '${ path}',
+        width: radius?.sp,
+        height: radius?.sp,
+        boxFit: BoxFit.cover,
+        waitWidget: WidgetProfilePicture(
+          name: name??'',
+          radius: radius?.sp,
+          backgroundColor: ColorManager.whiteColor,
+          textColor: ColorManager.primaryColor,
+        ),
+        errorWidget: WidgetProfilePicture(
+          name: name??'',
+          radius: radius?.sp,
+
+          backgroundColor: ColorManager.whiteColor,
+          textColor: ColorManager.primaryColor,
+        ),
+      )
+          :
+      Image.network(
+        width: radius?.sp,
+        height: radius?.sp,
+        'https://news.griffith.edu.au/wp-content/uploads/2014/09/GriffithGC-5745-682x1024.jpg',
+      )
+      // Image.file(
+      //   File(path!),
+      //   width: radius?.sp,
+      //   height: radius?.sp,
+      //   fit: BoxFit.cover,
+      // ),
     );
   }
 }

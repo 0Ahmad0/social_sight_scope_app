@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ import '../../core/utils/app_constant.dart';
 import '../../core/utils/color_manager.dart';
 import '../../core/utils/string_manager.dart';
 import '../../core/widgets/constants_widgets.dart';
+import '../../translations/locale_keys.g.dart';
 import 'firebase/firebase_fun.dart';
 
 class ProfileController extends GetxController {
@@ -111,8 +113,10 @@ class ProfileController extends GetxController {
         ConstantsWidgets.closeDialog();
         Get.back();
         Get.snackbar(
-            StringManager.message_success,
-            StringManager.message_successfully_update,
+            tr(LocaleKeys.message_success),
+            tr(LocaleKeys.message_successful_update),
+            // StringManager.message_success,
+            // StringManager.message_successfully_update,
             backgroundColor: ColorManager.successColor
         );
         // if(email!=currentUser.value?.email||(password!=''&&password!=null))
@@ -123,11 +127,12 @@ class ProfileController extends GetxController {
     } catch (e) {
       String errorMessage;
       // errorMessage = "An unexpected error occurred. Please try again later.";
-      errorMessage = "An unexpected error occurred. Please try again later.";
+      errorMessage = tr(LocaleKeys.message_error_try_again_later);
       ConstantsWidgets.closeDialog();
       Get.back();
       Get.snackbar(
-          StringManager.message_failure,
+          tr(LocaleKeys.message_failure),
+          // StringManager.message_failure,
           errorMessage,
           backgroundColor: ColorManager.errorColor
       );
@@ -168,8 +173,10 @@ class ProfileController extends GetxController {
       String errorMessage;
       // errorMessage = "An unexpected error occurred. Please try again later.";
       errorMessage = "An unexpected error occurred. Please try again later.";
+      errorMessage =  tr(LocaleKeys.message_error_try_again_later);;
       Get.snackbar(
-          StringManager.message_failure,
+          tr(LocaleKeys.message_failure),
+          // StringManager.message_failure,
           errorMessage,
           backgroundColor: ColorManager.errorColor
       );

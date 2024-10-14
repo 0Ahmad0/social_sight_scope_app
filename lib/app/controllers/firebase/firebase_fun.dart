@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import '../../../core/models/person_model.dart';
 import '../../../core/models/user_model.dart';
 import '../../../core/utils/color_manager.dart';
+import '../../../translations/locale_keys.g.dart';
 import 'firebase_constants.dart';
 
 class FirebaseFun {
@@ -211,73 +213,90 @@ class FirebaseFun {
       case "user-not-found":
         errorMessage = "No user found with this email.";
         // errorMessage = "لا يوجد مستخدم لهذا البريد.";
+        errorMessage= tr(LocaleKeys.message_no_user_for_email);
         break;
       case "wrong-password":
         errorMessage = "Incorrect password.";
         // errorMessage = "كلمة السر غير صحيحة.";
+        errorMessage= tr(LocaleKeys.message_incorrect_password);
         break;
       case "invalid-email":
         // errorMessage = "البريد الالكتروني البدخل غير صالح";
+        errorMessage= tr(LocaleKeys.message_invalid_email);
         break;
       case "user-disabled":
         // errorMessage = "المستخدم غير مفعل.";
+        errorMessage= tr(LocaleKeys.message_user_not_activated);
         break;
       case "too-many-requests":
         errorMessage =
         ".حاولت تسجيل الدخول مرات عديدة، حاول لاحقاً";
         errorMessage="Too many requests";
+        errorMessage= tr(LocaleKeys.message_too_many_attempts);
         break;
       // register
       case "email-already-in-use":
         errorMessage = ".هذا البريد موجود مسبقاً";
         errorMessage="email already in use";
+        errorMessage= tr(LocaleKeys.message_email_already_in_use);
         break;
       case "invalid-email":
         errorMessage = "البريد الالكتروني غير صالح.";
         errorMessage = "Invalid email";
+        errorMessage= tr(LocaleKeys.message_invalid_email);
         break;
       case "weak-password":
         errorMessage = "Password is too weak. It must be at least 6 characters long, including at least one uppercase letter, one lowercase letter, and one digit.";
         // errorMessage = "كلمة المرور ضعيفة، يجب أن تحوي 6 محارف، وتتضمن حرف كبير وحرف صغير، وأيضا علامة ترقيم";
+        errorMessage= tr(LocaleKeys.message_weak_password);
         break;
       case "invalid email":
         errorMessage = "البريد الالكتروني غير صالح.";
         errorMessage = "Invalid email";
+        errorMessage= tr(LocaleKeys.message_invalid_email);
         break;
       case "invalid-credential":
         errorMessage = "المستخدم غير صحيح.";
         errorMessage = "Invalid credential";
+        errorMessage= tr(LocaleKeys.message_incorrect_user);
         break;
 
       case "account successfully logged":
         errorMessage =
         "تم تسجيل الدخول بنجاح";
         errorMessage = "Account successfully logged";
+        errorMessage= tr(LocaleKeys.message_successful_login);
         break;
       case "users successfully fetch":
         errorMessage =
         "تم جلب معلومات المستخدمين بنجاح";
         errorMessage = "Users successfully fetch";
+        errorMessage= tr(LocaleKeys.message_users_fetched_successfully);
         break;
-      case "lesson successfully add":
+      case "person successfully add":
         errorMessage =
-        "تمت إضافة درس بنجاح";
+        "تمت إضافة شخص بنجاح";
+        errorMessage= tr(LocaleKeys.message_face_added_successfully);
         break;
-      case "lesson successfully update":
+      case "person successfully update":
         errorMessage =
         "تم تحديث الدرس بنجاح";
+        errorMessage= tr(LocaleKeys.message_face_updated_successfully);
         break;
-      case "lesson successfully fetch":
+      case "person successfully fetch":
         errorMessage =
         "تم جلب الدرس بنجاح";
+        errorMessage= tr(LocaleKeys.message_face_fetched_successfully);
         break;
       case "account successfully created":
         errorMessage =
         "تم انشاء الحساب بنجاح";
+        errorMessage= tr(LocaleKeys.message_account_created_successfully);
         break;
       case "Lesson successfully delete":
         errorMessage =
         "تم حذف الجلسة بنجاح";
+        errorMessage= tr(LocaleKeys.message_session_deleted_successfully);
         break;
       case "":
         errorMessage =
@@ -295,6 +314,7 @@ class FirebaseFun {
         errorMessage = "An unexpected error occurred. Please try again later.";
         errorMessage = "حصل خطأ، الرجاء المحاولة لاحقاً";
         errorMessage = text;
+        errorMessage= tr(LocaleKeys.message_error_try_again_later);
     }
     print("error trans: $errorMessage");
 

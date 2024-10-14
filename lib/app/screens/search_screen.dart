@@ -87,7 +87,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   } else if (snapshot.connectionState ==
                       ConnectionState.active) {
                     if (snapshot.hasError) {
-                      return const Text('Error');
+                      return  Text(tr(LocaleKeys.empty_data));
                     } else if (snapshot.hasData) {
                       ConstantsWidgets.circularProgress();
                       controller.persons.items.clear();
@@ -102,12 +102,13 @@ class _SearchScreenState extends State<SearchScreen> {
                             builder: (PersonsController HomePersonsController)=>
                             (HomePersonsController.personsWithFilter.items.isEmpty ?? true)
                                 ? EmptyWidget(
-                                text: StringManager.infoNotFacesYet)
+                                text: tr(LocaleKeys.home_no_faces_available))
+                                // text: StringManager.infoNotFacesYet)
                                 :
 
                             buildPersons(context, controller.personsWithFilter.items ?? []));
                     } else {
-                      return const Text('Empty data');
+                      return  Text(tr(LocaleKeys.empty_data));
                     }
                   } else {
                     return Text('State: ${snapshot.connectionState}');

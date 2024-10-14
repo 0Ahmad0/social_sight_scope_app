@@ -47,7 +47,7 @@ class SearchUserWidget extends StatelessWidget {
         leading: CircleUserPictureWidget(
           path: person.imagePath,
           name: person.name,
-          radius: 45.sp,
+          radius: 50.sp,
         ),
         title: Text(
           person.name ?? '',

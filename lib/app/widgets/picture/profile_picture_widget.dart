@@ -32,13 +32,15 @@ class WidgetProfilePicture extends StatelessWidget {
       ),
 
       child:
-          Text(
-            '${findFirstsCharFromText(name)}',
+          Align(
+            child: Text(
+              '${findFirstsCharFromText(name)}',
 
-            style: TextStyle(
-              fontSize: fontSize,
-              color: textColor
-            ),),
+              style: TextStyle(
+                fontSize: fontSize,
+                color: textColor
+              ),),
+          ),
     );
   }
   String findFirstsCharFromText(String text){
