@@ -45,7 +45,7 @@ dependencies:
   #fonts
   google_fonts: ^6.2.1
   #Dates
-  intl:
+  intl: ^0.19.0
   #pick Images From Camera and Gallery
   image_picker: ^1.1.2
   # pick Files From Device
@@ -53,14 +53,23 @@ dependencies:
   # Translation
   easy_localization: ^3.0.7
   #translate texts in app
-  translator: ^1.0.0
+#  translator: ^1.0.0
   country_flags: ^3.0.0
   url_launcher: ^6.3.0
-  google_ml_kit: ^0.18.0
-  flutter_gemini: ^2.0.5
+#  google_ml_kit: ^0.18.0
+#  flutter_gemini: ^2.0.5
   dash_chat_2: ^0.0.20
-  firebase_core: ^3.4.0
+#  firebase_core: ^3.4.0
   lottie: ^3.1.2
+  get:
+  get_storage:
+  #//Firebase//
+  firebase_core:
+  firebase_auth:
+  firebase_storage:
+  cloud_firestore:
+  firebase_database:
+  bcrypt: ^1.1.3
 
 
 

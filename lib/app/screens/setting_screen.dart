@@ -3,6 +3,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_common/get_reset.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:social_sight_scope/app/controllers/auth_controller.dart';
 import 'package:social_sight_scope/core/dialogs/general_bottom_sheet.dart';
 import 'package:social_sight_scope/core/dialogs/type/delete_account_dialog.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
@@ -46,7 +50,13 @@ class SettingScreen extends StatelessWidget {
                     children: ConstValueManager.languageList
                         .map((e) => ListTile(
                               onTap: () {
+
+                                context.deleteSaveLocale();
                                 context.setLocale(Locale(e.languageCode));
+                                var locale = Locale(e.languageCode);
+                                Get.updateLocale(locale); // تغيير اللغة إلى العربية
+
+
                               },
                               dense: true,
                               leading: SvgPicture.asset(e.icon),

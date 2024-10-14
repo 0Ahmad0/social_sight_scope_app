@@ -1,11 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:social_sight_scope/app/screens/chats_screen.dart';
 import 'package:social_sight_scope/app/screens/send_messages_screen.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 
+import 'app/controllers/profile_controller.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'core/utils/color_manager.dart';
@@ -24,6 +28,7 @@ class SocialSightScopeApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.put(ProfileController());
     return ScreenUtilInit(
         minTextAdapt: true,
         designSize: const Size(
@@ -31,7 +36,7 @@ class SocialSightScopeApp extends StatelessWidget {
           ConstValueManager.heightSize,
         ),
         builder: (context, child) {
-          return MaterialApp(
+          return GetMaterialApp(
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale ?? context.deviceLocale,

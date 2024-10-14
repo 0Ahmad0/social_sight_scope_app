@@ -2,10 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 import 'package:social_sight_scope/core/routing/routes.dart';
 import 'package:social_sight_scope/translations/locale_keys.g.dart';
 
+import '../../../app/controllers/auth_controller.dart';
 import '../../helpers/spacing.dart';
 import '../../utils/color_manager.dart';
 import '../../utils/string_manager.dart';
@@ -49,7 +52,9 @@ class DeleteAccountDialog extends StatelessWidget {
               Flexible(
                   child: AppButton(
                 onPressed: () {
-                  context.pushAndRemoveUntil(Routes.initialRoute, predicate: (Route<dynamic> route) { return false; });
+                  Get.lazyPut(() => AuthController());
+                  AuthController.instance.deleteAccount(context);
+                  // context.pushAndRemoveUntil(Routes.initialRoute, predicate: (Route<dynamic> route) { return false; });
                 },
                 text: tr(LocaleKeys.ok),
               )),

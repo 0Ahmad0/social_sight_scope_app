@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 import 'package:social_sight_scope/core/helpers/spacing.dart';
 import 'package:social_sight_scope/core/routing/routes.dart';
@@ -18,9 +20,22 @@ import 'package:social_sight_scope/core/widgets/app_button.dart';
 import 'package:social_sight_scope/core/widgets/app_padding.dart';
 import 'package:social_sight_scope/translations/locale_keys.g.dart';
 
-class SplashScreen extends StatelessWidget {
+import '../controllers/splash_controller.dart';
+
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    // _goToNextScreen();
+    Get.put(SplashController()).initSplash(context);
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +90,8 @@ class SplashScreen extends StatelessWidget {
                           value: e.text,
                           onTap: () {
                             context.setLocale(Locale(e.languageCode));
+                            var locale = Locale(e.languageCode);
+                            Get.updateLocale(locale);
                           },
                         ))
                     .toList(),

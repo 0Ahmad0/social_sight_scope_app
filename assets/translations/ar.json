@@ -7,6 +7,11 @@
   "app_language_text": "لغة التطبيق :",
   "edit_text": "تعديل",
   "save_text": "حفظ",
+  "minute": "دقيقة",
+  "empty_data": "لا يوجد بيانات",
+
+  "error": "خطأ",
+  "update": "تحديث",
 
   "login":{
     "welcome_back_text": "أهلا\nبعودتك",
@@ -76,7 +81,8 @@
     "delete_account_text": "حذف الحساب",
     "contact_us_text": "تواصل معنا",
     "write_your_message_text": "أكتب رسالتك هنا",
-    "social_media_account": "طرق أخرى للتواصل"
+    "social_media_account": "طرق أخرى للتواصل",
+    "no_faces_available": "لا يوجد وجوه متاحة"
   },
   "contactUs": {
     "facebook_text":"فيسبوك",
@@ -97,5 +103,35 @@
     "phone_text": "رقم الموبايل",
     "other_data_text": "معلومات أخرى",
     "please_type_line_text": "الرجاء كتابة التفاصيل على الشكل:\n*المهنة : طبيب بيطري\nالعمر 23\nالسكن: السعودية الخبر بجانب كافيه دروش..."
+  },
+  "message": {
+    "error_try_again_later": "حصل خطأ، الرجاء المحاولة لاحقاً",
+    "session_deleted_successfully": "تم حذف الجلسة بنجاح",
+    "account_created_successfully": "تم انشاء الحساب بنجاح",
+    "face_fetched_successfully": "تم جلب الوجه بنجاح",
+    "face_updated_successfully": "تم تحديث الوجه بنجاح",
+    "face_added_successfully": "تمت إضافة الوجه بنجاح",
+    "users_fetched_successfully": "تم جلب معلومات المستخدمين بنجاح",
+    "login_successful": "تم تسجيل الدخول بنجاح",
+    "incorrect_user": "المستخدم غير صحيح",
+    "invalid_email": "البريد الالكتروني غير صالح",
+    "weak_password": "كلمة المرور ضعيفة، يجب أن تحوي 6 محارف، وتتضمن حرف كبير وحرف صغير، وأيضا علامة ترقيم",
+    "email_already_in_use": "هذا البريد موجود مسبقاً.",
+    "too_many_attempts": "حاولت تسجيل الدخول مرات عديدة، حاول لاحقاً.",
+    "user_not_activated": "المستخدم غير مفعل",
+    "invalid_email_input": "البريد الالكتروني المدخل غير صالح",
+    "incorrect_password": "كلمة السر غير صحيحة",
+    "no_user_for_email": "لا يوجد مستخدم لهذا البريد.",
+    "password_mismatch": "كلمة السر غير متطابقة",
+    "invalid_number": "الرقم المدخل غير صحيح",
+    "invalid_email_entry": "الايميل المدخل غير صحيح",
+    "password_length": "كلمة السر يجب أن تكون 8 محارف أو أكثر",
+    "success": "نجاح",
+    "failure": "فشل",
+    "successful_login": "تم تسجيل الدخول بنجاح",
+    "successful_update": "تم التحديث بنجاح",
+    "successful_send_reset_password": "تم إرسال إعادة تعيين كلمة المرور إلى البريد الإلكتروني بنجاح",
+    "cannot_resend_code": "لا يمكنك إعادة إرسال الرمز حتى انتهاء المدة",
+    "unexpected_error": "حدث خطأ غير متوقع. الرجاء المحاولة لاحقاً."
   }
 }
