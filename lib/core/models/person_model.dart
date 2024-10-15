@@ -6,6 +6,7 @@ class PersonModel {
   String? id;
   String? idUser;
   String? uid;
+  String? idChat;
   String? name;
   String? email;
   String? description;
@@ -25,6 +26,7 @@ class PersonModel {
     this.uid,
     this.imagePath,
     this.idUser,
+    this.idChat,
     this.dateTime,
   });
 
@@ -39,6 +41,7 @@ class PersonModel {
       imagePath: data["imagePath"],
       phoneNumber: json["phoneNumber"],
       uid: data["uid"],
+      idChat: data["idChat"],
       idUser: data["idUser"],
       dateTime: data["dateTime"]?.toDate(),
     );
@@ -62,6 +65,7 @@ class PersonModel {
       'uid': uid,
       'phoneNumber': phoneNumber,
       'idUser': idUser,
+      'idChat': idChat,
       'dateTime': dateTime==null?null:Timestamp.fromDate(dateTime!),
     };
   }

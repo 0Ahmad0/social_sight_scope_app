@@ -138,7 +138,7 @@ class ProfileController extends GetxController {
       );
     }
   }
-  Future<void> getUser(BuildContext context) async {
+  Future<void> getUser(BuildContext context,{bool withLoginRout=true}) async {
     try {
 
       if(auth.currentUser==null);
@@ -146,6 +146,7 @@ class ProfileController extends GetxController {
           .signInWithEmailAndPassword(email: await AppStorage.storageRead(key: AppConstants.EMAIL_KEY), password: await AppStorage.storageRead(key: AppConstants.PASSWORD_KEY))
           .timeout(FirebaseFun.timeOut)
           .then((value) async {});
+
 
       await FirebaseFirestore.instance
           .collection('Users')
@@ -170,16 +171,18 @@ class ProfileController extends GetxController {
 
 
     } catch (e) {
+
       String errorMessage;
       // errorMessage = "An unexpected error occurred. Please try again later.";
       errorMessage = "An unexpected error occurred. Please try again later.";
-      errorMessage =  tr(LocaleKeys.message_error_try_again_later);;
+      errorMessage =  tr(LocaleKeys.message_error_try_again_later);
       Get.snackbar(
           tr(LocaleKeys.message_failure),
           // StringManager.message_failure,
           errorMessage,
           backgroundColor: ColorManager.errorColor
       );
+      if(withLoginRout)
       context.pushAndRemoveUntil(Routes.loginRoute, predicate: (Route<dynamic> route) =>false);
 
       // Get.offAll(LoginScreen());

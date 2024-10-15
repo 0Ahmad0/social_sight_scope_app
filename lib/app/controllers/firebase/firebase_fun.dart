@@ -7,6 +7,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../../core/models/chat_model.dart';
+import '../../../core/models/message_model.dart';
 import '../../../core/models/person_model.dart';
 import '../../../core/models/user_model.dart';
 import '../../../core/utils/color_manager.dart';
@@ -51,6 +53,14 @@ class FirebaseFun {
         .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
     return result;
   }
+  static fetchUserByEmail( {required String email})  async {
+    final result=await FirebaseFirestore.instance.collection(FirebaseConstants.collectionUser)
+        .where('email',isEqualTo: email)
+        .get()
+        .then((onValueFetchUserByUserName))
+        .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
   static fetchUserId( {required String id,required String typeUser})  async {
     final result=await FirebaseFirestore.instance.collection(typeUser)
         .where('id',isEqualTo: id)
@@ -65,6 +75,15 @@ class FirebaseFun {
         .where('uid',isEqualTo: uid)
         .get()
         .then((onValueFetchUserId))
+        .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+
+  static fetchUserIndex( {required String index,required String typeUser})  async {
+    final result=await FirebaseFirestore.instance.collection(typeUser)
+        .doc(index)
+        .get()
+        .then((onValueFetchUserIndex))
         .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
     return result;
   }
@@ -104,6 +123,80 @@ class FirebaseFun {
         .where('idUser',isEqualTo: idUser)
         .get()
         .then((onValueFetchPersons))
+        .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+
+
+
+  ///Chat
+  static addChat( {required Chat chat}) async {
+    final result= await FirebaseFirestore.instance.collection(FirebaseConstants.collectionChat).add(
+        chat.toJson()
+    ).then(onValueAddChat).catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+  static deleteChat( {required String idChat}) async {
+    final result =await FirebaseFirestore.instance
+        .collection(FirebaseConstants.collectionChat)
+        .doc(idChat)
+        .delete().then(onValueDeleteChat)
+        .catchError(onError);
+    return result;
+  }
+  static updateChat( {required Chat chat}) async {
+    final result= await FirebaseFirestore.instance.collection(FirebaseConstants.collectionChat).doc(
+        chat.id
+    ).update(chat.toJson()).then(onValueUpdateChat).catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+  static fetchChatsByIdUser({required List listIdUser})  async {
+    final result=await FirebaseFirestore.instance.collection(FirebaseConstants.collectionChat)
+        .where('listIdUser',arrayContains: listIdUser)
+        .get()
+        .then((onValueFetchChats))
+        .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+  static fetchChatsByListIdUser({required List listIdUser})  async {
+    final database = await FirebaseFirestore.instance.collection(FirebaseConstants.collectionChat);
+    Query<Map<String, dynamic>> ref = database;
+
+    listIdUser.forEach( (val) => {
+      ref = database.where('listIdUser' ,arrayContains: val)
+    });
+    final result=
+    ref
+        .get()
+        .then((onValueFetchChats))
+        .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
+    return result;
+  }
+
+  static addMessage( {required Message message,required String idChat}) async {
+    final result =await FirebaseFirestore.instance
+        .collection(FirebaseConstants.collectionChat)
+        .doc(idChat)
+        .collection(FirebaseConstants.collectionMessage).add(
+        message.toJson()
+    ).then(onValueAddMessage)
+        .catchError(onError);
+    return result;
+  }
+  static deleteMessage( {required Message message,required String idChat}) async {
+    final result =await FirebaseFirestore.instance
+        .collection(FirebaseConstants.collectionChat)
+        .doc(idChat)
+        .collection(FirebaseConstants.collectionMessage).doc(
+        message.id
+    ).delete().then(onValueDeleteMessage)
+        .catchError(onError);
+    return result;
+  }
+  static fetchLastMessage({required String idChat})  async {
+    final result=await FirebaseFirestore.instance.collection(FirebaseConstants.collectionChat)
+        .doc(idChat).collection(FirebaseConstants.collectionMessage).orderBy('sendingTime',descending: true).get()
+        .then((onValueFetchLastMessage))
         .catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
     return result;
   }
@@ -159,6 +252,13 @@ class FirebaseFun {
       'body':(value.docs.length>0)?UserModel.fromJson(value.docs[0]).toJson():null
     };
   }
+  static Future<Map<String,dynamic>> onValueFetchUserIndex(value) async{
+    return {
+      'status':true,
+      'message':'Account successfully logged',
+      'body':(value!=null)?UserModel.fromJson(value).toJson():null
+    };
+  }
   static Future<Map<String,dynamic>> onValueFetchUsers(value) async{
     print("Users count : ${value.docs.length}");
 
@@ -200,6 +300,58 @@ class FirebaseFun {
       'body':{}
     };
   }
+
+
+  static Future<Map<String,dynamic>>onValueAddChat(value) async{
+    return {
+      'status':true,
+      'message':'Chat successfully add',
+      'body':{'id':value.id}
+    };
+  }
+  static Future<Map<String,dynamic>>onValueUpdateChat(value) async{
+    return {
+      'status':true,
+      'message':'Chat successfully update',
+      'body':{}
+    };
+  }
+  static Future<Map<String,dynamic>> onValueFetchChats(value) async{
+    return {
+      'status':true,
+      'message':'Chats successfully fetch',
+      'body':value.docs
+    };
+  }
+  static Future<Map<String,dynamic>>onValueAddMessage(value) async{
+    return {
+      'status':true,
+      'message':'Message successfully add',
+      'body':{}
+    };
+  }
+  static Future<Map<String,dynamic>>onValueDeleteChat(value) async{
+    return {
+      'status':true,
+      'message':'Chat successfully delete',
+      'body':{}
+    };
+  }
+  static Future<Map<String,dynamic>>onValueDeleteMessage(value) async{
+    return {
+      'status':true,
+      'message':'Message successfully delete',
+      'body':{}
+    };
+  }
+  static Future<Map<String,dynamic>> onValueFetchLastMessage(value) async{
+    return {
+      'status':true,
+      'message':'Last message successfully fetch',
+      'body':value.docs
+    };
+  }
+
 
 
 

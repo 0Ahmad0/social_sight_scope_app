@@ -15,6 +15,7 @@ import 'package:social_sight_scope/translations/locale_keys.g.dart';
 import '../../core/utils/color_manager.dart';
 import '../../core/utils/const_value_manager.dart';
 import '../../core/utils/style_manager.dart';
+import '../controllers/persons_controller.dart';
 
 class HomeUserWidget extends StatelessWidget {
   const HomeUserWidget({
@@ -151,9 +152,10 @@ class HomeUserWidget extends StatelessWidget {
                     FadeInDown(
                       child: InkWell(
                         onTap: (){
-                          context.pushNamed(Routes.sendMessageRoute,arguments: {
-                            'index':index.toString()
-                          });
+                          // context.pushNamed(Routes.sendMessageRoute,arguments: {
+                          //   'index':index.toString()
+                          // });
+                          Get.put(PersonsController()).connectionPerson(context, person,index);
                         },
                         child: Hero(
                           tag: index.toString(),

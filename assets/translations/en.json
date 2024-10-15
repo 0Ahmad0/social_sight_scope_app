@@ -12,7 +12,12 @@
 
   "error": "Error",
   "update": "Update",
-
+  "B": "B",
+  "KB": "KB",
+  "MB": "MB",
+  "GB": "GB",
+  "loading": "Loading",
+  "deleted_account": "Deleted Account",
   "login": {
     "welcome_back_text": "Welcome\nBack",
     "login_text": "Login",
@@ -56,7 +61,18 @@
   "chat": {
     "chats_text": "Chats",
     "add_new_text": "New chat",
-    "message_text": "Message..."
+    "message_text": "Message...",
+    "loading": "Loading",
+    "delete_account": "Delete Account",
+    "connecting": "Connecting",
+    "connection": "Connection",
+    "offline": "Offline",
+    "online": "Online",
+    "last_seen_today_at": "Last seen today at",
+    "at": "at",
+    "last_seen_at": "Last seen at",
+    "last_seen_on": "Last seen on",
+    "no_chats_yet": "No Chats Yet"
   },
   "search": {
     "search_text": "Search..."
