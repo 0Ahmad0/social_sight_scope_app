@@ -13,12 +13,15 @@ class CircleUserPictureWidget extends StatelessWidget {
     super.key,
     this.radius,
     required this.path,
-    required this.name,
+    required this.name, this.errorWidget, this.waitWidget, this.boxFit,
   });
 
   final double? radius;
   final String? path;
   final String? name;
+  final Widget? errorWidget;
+  final Widget? waitWidget;
+  final BoxFit? boxFit;
 
   @override
   Widget build(BuildContext context) {
@@ -47,14 +50,14 @@ class CircleUserPictureWidget extends StatelessWidget {
         '${ path}',
         width: radius?.sp,
         height: radius?.sp,
-        boxFit: BoxFit.cover,
-        waitWidget: WidgetProfilePicture(
+        boxFit:boxFit?? BoxFit.cover,
+        waitWidget: waitWidget??WidgetProfilePicture(
           name: name??'',
           radius: radius?.sp,
           backgroundColor: ColorManager.whiteColor,
           textColor: ColorManager.primaryColor,
         ),
-        errorWidget: WidgetProfilePicture(
+        errorWidget:errorWidget?? WidgetProfilePicture(
           name: name??'',
           radius: radius?.sp,
 

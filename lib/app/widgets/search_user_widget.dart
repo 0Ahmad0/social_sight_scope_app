@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:social_sight_scope/app/controllers/person_controller.dart';
+import 'package:social_sight_scope/app/controllers/persons_controller.dart';
 import 'package:social_sight_scope/app/widgets/picture/circle_user_picture_widget.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
 import 'package:social_sight_scope/core/helpers/spacing.dart';
@@ -73,9 +74,10 @@ class SearchUserWidget extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.message, color: ColorManager.primaryColor),
               onPressed: () {
-                context.pushNamed(Routes.sendMessageRoute, arguments: {
-                  'index': index.toString(),
-                });
+                Get.put(PersonsController()).connectionPerson(context, person,index);
+                // context.pushNamed(Routes.sendMessageRoute, arguments: {
+                //   'index': index.toString(),
+                // });
               },
             ),
             // if (currentIndex == index)

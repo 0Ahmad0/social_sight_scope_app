@@ -23,6 +23,16 @@ class CodegenLoader extends AssetLoader{
   "app_language_text": "لغة التطبيق :",
   "edit_text": "تعديل",
   "save_text": "حفظ",
+  "minute": "دقيقة",
+  "empty_data": "لا يوجد بيانات",
+  "error": "خطأ",
+  "update": "تحديث",
+  "B": "ب",
+  "KB": "ك.ب",
+  "MB": "م.ب",
+  "GB": "ج.ب",
+  "loading": "جاري التحميل",
+  "deleted_account": "الحساب محذوف",
   "login": {
     "welcome_back_text": "أهلا\nبعودتك",
     "login_text": "تسجيل الدخول",
@@ -65,7 +75,16 @@ class CodegenLoader extends AssetLoader{
   "chat": {
     "chats_text": "المحادثات",
     "add_new_text": "محادثة جديدة",
-    "message_text": "الرسالة..."
+    "message_text": "الرسالة...",
+    "no_chats_yet": "لا توجد محادثات حتى الآن",
+    "connecting": "جاري الاتصال",
+    "connection": "الاتصال",
+    "offline": "غير متصل",
+    "online": "متصل",
+    "last_seen_today_at": "آخر ظهور اليوم في",
+    "last_seen_at": "آخر ظهور منذ",
+    "at": "منذ",
+    "last_seen_on": "آخر ظهور في"
   },
   "search": {
     "search_text": "ابحث هنا..."
@@ -91,7 +110,8 @@ class CodegenLoader extends AssetLoader{
     "delete_account_text": "حذف الحساب",
     "contact_us_text": "تواصل معنا",
     "write_your_message_text": "أكتب رسالتك هنا",
-    "social_media_account": "طرق أخرى للتواصل"
+    "social_media_account": "طرق أخرى للتواصل",
+    "no_faces_available": "لا يوجد وجوه متاحة"
   },
   "contactUs": {
     "facebook_text": "فيسبوك",
@@ -112,6 +132,36 @@ class CodegenLoader extends AssetLoader{
     "phone_text": "رقم الموبايل",
     "other_data_text": "معلومات أخرى",
     "please_type_line_text": "الرجاء كتابة التفاصيل على الشكل:\n*المهنة : طبيب بيطري\nالعمر 23\nالسكن: السعودية الخبر بجانب كافيه دروش..."
+  },
+  "message": {
+    "error_try_again_later": "حصل خطأ، الرجاء المحاولة لاحقاً",
+    "session_deleted_successfully": "تم حذف الجلسة بنجاح",
+    "account_created_successfully": "تم انشاء الحساب بنجاح",
+    "face_fetched_successfully": "تم جلب الوجه بنجاح",
+    "face_updated_successfully": "تم تحديث الوجه بنجاح",
+    "face_added_successfully": "تمت إضافة الوجه بنجاح",
+    "users_fetched_successfully": "تم جلب معلومات المستخدمين بنجاح",
+    "login_successful": "تم تسجيل الدخول بنجاح",
+    "incorrect_user": "المستخدم غير صحيح",
+    "invalid_email": "البريد الالكتروني غير صالح",
+    "weak_password": "كلمة المرور ضعيفة، يجب أن تحوي 6 محارف، وتتضمن حرف كبير وحرف صغير، وأيضا علامة ترقيم",
+    "email_already_in_use": "هذا البريد موجود مسبقاً.",
+    "too_many_attempts": "حاولت تسجيل الدخول مرات عديدة، حاول لاحقاً.",
+    "user_not_activated": "المستخدم غير مفعل",
+    "invalid_email_input": "البريد الالكتروني المدخل غير صالح",
+    "incorrect_password": "كلمة السر غير صحيحة",
+    "no_user_for_email": "لا يوجد مستخدم لهذا البريد.",
+    "password_mismatch": "كلمة السر غير متطابقة",
+    "invalid_number": "الرقم المدخل غير صحيح",
+    "invalid_email_entry": "الايميل المدخل غير صحيح",
+    "password_length": "كلمة السر يجب أن تكون 8 محارف أو أكثر",
+    "success": "نجاح",
+    "failure": "فشل",
+    "successful_login": "تم تسجيل الدخول بنجاح",
+    "successful_update": "تم التحديث بنجاح",
+    "successful_send_reset_password": "تم إرسال إعادة تعيين كلمة المرور إلى البريد الإلكتروني بنجاح",
+    "cannot_resend_code": "لا يمكنك إعادة إرسال الرمز حتى انتهاء المدة",
+    "unexpected_error": "حدث خطأ غير متوقع. الرجاء المحاولة لاحقاً."
   }
 };
 static const Map<String,dynamic> en = {
@@ -123,6 +173,16 @@ static const Map<String,dynamic> en = {
   "app_language_text": "App Language :",
   "edit_text": "Edit",
   "save_text": "Save",
+  "minute": "minute",
+  "empty_data": "Empty data",
+  "error": "Error",
+  "update": "Update",
+  "B": "B",
+  "KB": "KB",
+  "MB": "MB",
+  "GB": "GB",
+  "loading": "Loading",
+  "deleted_account": "Deleted Account",
   "login": {
     "welcome_back_text": "Welcome\nBack",
     "login_text": "Login",
@@ -165,7 +225,18 @@ static const Map<String,dynamic> en = {
   "chat": {
     "chats_text": "Chats",
     "add_new_text": "New chat",
-    "message_text": "Message..."
+    "message_text": "Message...",
+    "loading": "Loading",
+    "delete_account": "Delete Account",
+    "connecting": "Connecting",
+    "connection": "Connection",
+    "offline": "Offline",
+    "online": "Online",
+    "last_seen_today_at": "Last seen today at",
+    "at": "at",
+    "last_seen_at": "Last seen at",
+    "last_seen_on": "Last seen on",
+    "no_chats_yet": "No Chats Yet"
   },
   "search": {
     "search_text": "Search..."
@@ -191,7 +262,8 @@ static const Map<String,dynamic> en = {
     "delete_account_text": "Delete account",
     "contact_us_text": "Contact us",
     "write_your_message_text": "Type your message",
-    "social_media_account": "Social media Accounts"
+    "social_media_account": "Social media Accounts",
+    "no_faces_available": "No faces available"
   },
   "contactUs": {
     "facebook_text": "Facebook",
@@ -212,6 +284,36 @@ static const Map<String,dynamic> en = {
     "phone_text": "Phone number",
     "other_data_text": "Other details",
     "please_type_line_text": "Please write the details in the following format:\n*Profession: Veterinarian\nAge: 23\nResidence: Saudi Arabia, Al Khobar, next to Drosh Cafe..."
+  },
+  "message": {
+    "error_try_again_later": "An error occurred, please try again later",
+    "session_deleted_successfully": "Session deleted successfully",
+    "account_created_successfully": "Account created successfully",
+    "face_fetched_successfully": "Face fetched successfully",
+    "face_updated_successfully": "Face updated successfully",
+    "face_added_successfully": "Face added successfully",
+    "users_fetched_successfully": "Users' information fetched successfully",
+    "login_successful": "Login successful",
+    "incorrect_user": "Incorrect user",
+    "invalid_email": "Invalid email",
+    "weak_password": "Weak password, it must be at least 6 characters long and include a capital letter, a small letter, and a punctuation mark",
+    "email_already_in_use": "This email is already in use.",
+    "too_many_attempts": "Too many login attempts, please try again later.",
+    "user_not_activated": "User not activated",
+    "invalid_email_input": "The email entered is invalid",
+    "incorrect_password": "Incorrect password",
+    "no_user_for_email": "No user exists for this email.",
+    "password_mismatch": "Passwords do not match",
+    "invalid_number": "The entered number is incorrect",
+    "invalid_email_entry": "The entered email is incorrect",
+    "password_length": "Password must be 8 characters or more",
+    "success": "Success",
+    "failure": "Failure",
+    "successful_login": "Successful login",
+    "successful_update": "Successful update",
+    "successful_send_reset_password": "Successful Send Reset Password To Email",
+    "cannot_resend_code": "You cannot resend the code until the time expires",
+    "unexpected_error": "An unexpected error occurred. Please try again later."
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};

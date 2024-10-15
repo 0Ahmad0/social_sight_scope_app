@@ -13,6 +13,12 @@
   "error": "خطأ",
   "update": "تحديث",
 
+  "B": "ب",
+  "KB": "ك.ب",
+  "MB": "م.ب",
+  "GB": "ج.ب",
+  "loading": "جاري التحميل",
+  "deleted_account": "مستخدم محذوف",
   "login":{
     "welcome_back_text": "أهلا\nبعودتك",
     "login_text": "تسجيل الدخول",
@@ -55,7 +61,16 @@
   "chat": {
     "chats_text": "المحادثات",
     "add_new_text": "محادثة جديدة",
-    "message_text": "الرسالة..."
+    "message_text": "الرسالة...",
+    "no_chats_yet": "لا توجد محادثات حتى الآن",
+    "connecting": "جاري الاتصال",
+    "connection": "الاتصال",
+    "offline": "غير متصل",
+    "online": "متصل",
+    "last_seen_today_at": "آخر ظهور اليوم في",
+    "last_seen_at": "آخر ظهور منذ",
+    "at": "منذ",
+    "last_seen_on": "آخر ظهور في"
   },
   "search": {
     "search_text": "ابحث هنا..."

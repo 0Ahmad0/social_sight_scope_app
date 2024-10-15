@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:social_sight_scope/social_sight_scope_app.dart';
 
+import 'app/controllers/firebase/connection_time.dart';
 import 'core/routing/app_router.dart';
 import 'core/routing/routes.dart';
 import 'core/utils/const_value_manager.dart';
@@ -23,7 +24,8 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
   /// To Fix Bug In Text Showing In Release Mode
   await ScreenUtil.ensureScreenSize();
-
+  /// for show last connection
+  ConnectionTime.instance.connectTime();
   runApp(
     EasyLocalization(
       child: SocialSightScopeApp(

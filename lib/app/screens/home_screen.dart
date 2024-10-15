@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late HomePersonsController controller;
   void initState() {
     controller = Get.put(HomePersonsController());
+    controller.onInit();
     super.initState();
   }
   @override
