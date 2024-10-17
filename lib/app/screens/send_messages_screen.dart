@@ -64,7 +64,7 @@ class _SendMessagesScreenState extends State<SendMessagesScreen> {
   Widget build(BuildContext context) {
 
     args=ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    controller.chat=args['chat'];
+    controller.chat=(args['chat'] is Chat?)?args['chat']:null;
     controller.onInit();
 
     Get.lazyPut(() => ProcessController());
