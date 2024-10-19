@@ -48,10 +48,10 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => AddNewPersonScreen(),
         );
-      // case Routes.translationRoute:
-      //   return MaterialPageRoute(
-      //     builder: (_) => TranslationScreen(),
-      //   );
+      case Routes.translationRoute:
+        return MaterialPageRoute(
+          builder: (_) => TranslationScreen(),
+        );
       case Routes.settingRoute:
         return MaterialPageRoute(
           builder: (_) => SettingScreen(),
@@ -68,14 +68,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => SendMessagesScreen(),
         );
-      // case Routes.faceDetectionModeRoute:
-      //   return MaterialPageRoute(
-      //     builder: (_) => FaceDetectedModeScreen(),
-      //   );
-      // case Routes.geminiChatRoute:
-      //   return MaterialPageRoute(
-      //     builder: (_) => GeminiChatScreen(),
-      //   );
+      case Routes.faceDetectionModeRoute:
+        return MaterialPageRoute(
+          builder: (_) => FaceDetectedModeScreen(),
+        );
+      case Routes.geminiChatRoute:
+        return MaterialPageRoute(
+          builder: (_) => GeminiChatScreen(),
+        );
  case Routes.showPersonDetailsRoute:
         return MaterialPageRoute(
           builder: (_) => ShowPersonDetailsScreen(),
