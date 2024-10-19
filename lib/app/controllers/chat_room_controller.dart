@@ -15,7 +15,8 @@ import 'firebase/firebase_fun.dart';
 
 
 class ChatRoomController extends GetxController{
-  Chat? chat = Get.arguments?["chat"] ;
+  Chat? chat  ;
+  // Chat? chat = Get.arguments?["chat"] ;
   final messageController = TextEditingController();
   List<Message> chatList = [];
   List<Message> waitMessage = [];
@@ -24,6 +25,9 @@ class ChatRoomController extends GetxController{
   String? recId;
   @override
   void onInit() {
+    if(Get.arguments?["chat"] is Chat?){
+      chat=Get.arguments?["chat"];
+    }
     waitMessage.clear();
     currentUserId=FirebaseAuth.instance.currentUser?.uid ?? '';
     recId=getIdUserOtherFromList( chat?.listIdUser??[]);

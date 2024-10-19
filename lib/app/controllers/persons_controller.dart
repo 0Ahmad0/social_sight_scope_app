@@ -89,7 +89,7 @@ class PersonsController extends GetxController{
           // if(result['status'])
           //    Get.to(ChatPage(), arguments: {'chat': controller.chat});
           context.pushNamed(Routes.sendMessageRoute, arguments: {
-            'chat':Get.put(ChatController()).chat.toJson()
+            'chat':Get.put(ChatController()).chat
           });
         }else{
           ConstantsWidgets.closeDialog();
