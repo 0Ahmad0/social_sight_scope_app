@@ -120,7 +120,7 @@ class _EditProfileDialogState extends State<EditProfileDialog> {
                             isDismissible: false,
                             builder: (context) => PickerDialog(
                               deletePicker:
-                              profileController.profileImage==null?null:
+                              profileController.profileImage==null&&profileController.imagePath==null?null:
                                   () async {
                                 profileController.deletePhoto();
                                 setState(() {});
