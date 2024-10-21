@@ -7,6 +7,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:social_sight_scope/core/helpers/extensions.dart';
+import 'package:social_sight_scope/core/routing/routes.dart';
 import 'package:social_sight_scope/core/utils/assets_manager.dart';
 import 'package:social_sight_scope/core/utils/color_manager.dart';
 import 'package:social_sight_scope/core/utils/const_value_manager.dart';
@@ -62,7 +64,6 @@ class _HomeScreenState extends State<HomeScreen> {
               } else if (snapshot.hasData) {
                 ConstantsWidgets.circularProgress();
                 controller.persons.items.clear();
-
                 if (snapshot.data!.docs.length > 0) {
                   controller.persons.items =
                       PersonsModel.fromJson(snapshot.data!.docs).items;
@@ -72,8 +73,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   GetBuilder<HomePersonsController>(
                       builder: (HomePersonsController HomePersonsController)=>
                       (HomePersonsController.personsWithFilter.items.isEmpty ?? true)
-                          ? EmptyWidget(
-                          text: tr(LocaleKeys.home_no_faces_available))
+                          ?Center(
+                        child: TextButton.icon(
+                            onPressed: (){
+                              context.pushNamed(
+                                  Routes.addNewPersonRoute
+                              );
+                            },
+                            icon: Icon(Icons.add),
+                            label: Text(
+                                tr(LocaleKeys.add_person)
+                            )
+                        ),
+                      )
+                      // EmptyWidget(
+                      //     text: tr(LocaleKeys.home_no_faces_available))
                           // text: StringManager.infoNotFacesYet)
                           :
 
