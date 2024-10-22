@@ -104,7 +104,7 @@ class FirebaseFun {
         .set(person.toJson()).then(onValueAddPerson).catchError(onError).timeout(timeOut,onTimeout: onTimeOut);
     return result;
   }
-  static deleteLesson( {required String idLesson}) async {
+  static deletePerson( {required String idLesson}) async {
     final result =await FirebaseFirestore.instance
         .collection(FirebaseConstants.collectionPerson)
         .doc(idLesson)
@@ -296,7 +296,7 @@ class FirebaseFun {
   static Future<Map<String,dynamic>>onValueDeleteLesson(value) async{
     return {
       'status':true,
-      'message':'Lesson successfully delete',
+      'message':'Person successfully delete',
       'body':{}
     };
   }

@@ -71,6 +71,9 @@ abstract class  LocaleKeys {
   static const search = 'search';
   static const home_welcome_text = 'home.welcome_text';
   static const home_are_you_sure_logout_text = 'home.are_you_sure_logout_text';
+  static const home_confirm_delete = 'home.confirm_delete';
+  static const home_are_you_sure_delete_chat_text = 'home.are_you_sure_delete_chat_text';
+  static const home_are_you_sure_delete_person_text = 'home.are_you_sure_delete_person_text';
   static const home_logout_text = 'home.logout_text';
   static const home_recognize_face_text = 'home.recognize_face_text';
   static const home_translate_language_text = 'home.translate_language_text';

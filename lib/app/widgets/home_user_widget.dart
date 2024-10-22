@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:social_sight_scope/app/controllers/home_persons_controller.dart';
 import 'package:social_sight_scope/app/controllers/person_controller.dart';
 import 'package:social_sight_scope/app/widgets/picture/circle_user_picture_widget.dart';
 import 'package:social_sight_scope/core/helpers/extensions.dart';
@@ -92,15 +93,70 @@ class HomeUserWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(
-                      person.description??'',
-                      // 'الوصف الوصف الوصف',
-                      maxLines: 2,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.ellipsis,
-                      style: StyleManager.font12Medium(
-                          color: ColorManager.whiteColor
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          person.description??'',
+                          // 'الوصف الوصف الوصف',
+                          maxLines: 2,
+                          textAlign: TextAlign.center,
+                          overflow: TextOverflow.ellipsis,
+                          style: StyleManager.font12Medium(
+                              color: ColorManager.whiteColor
+                          ),
+                        ),
+                        InkWell(onTap: (){
+                          Get.defaultDialog(
+                            confirm: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                TextButton(
+                                    style: TextButton.styleFrom(
+                                        backgroundColor:
+                                        Theme.of(context).primaryColor),
+                                    onPressed: () async {
+                                      Navigator.pop(context);
+                                      await Get.put(HomePersonsController()).deletePerson(context,idPerson: person.id);
+                                      // chatProvider.deleteUserInGroup(context, idUser: idUser);
+                                    },
+                                    child: Text(
+                                      tr(LocaleKeys.ok),
+                                      style: StyleManager.font12Light(),
+                                    )),
+                                // SizedBox(
+                                //   width: 8.w,
+                                // ),
+                                TextButton(
+                                    style: TextButton.styleFrom(
+                                        foregroundColor: ColorManager.errorColor,
+                                        backgroundColor: ColorManager.errorColor),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      tr(LocaleKeys.cancel),
+                                      style: StyleManager.font12Light(),
+                                    )),
+                              ],
+                            ),
+                            titleStyle:
+                            StyleManager.font20Bold(),
+                            title:tr(LocaleKeys.home_confirm_delete),
+                            content: Text(
+                                tr(LocaleKeys.home_are_you_sure_delete_person_text),
+                                style: StyleManager.font16Regular()
+                            ),
+                            radius: 14.sp,
+                          );
+
+                        }, child: CircleAvatar(
+                          backgroundColor: ColorManager.whiteColor.withOpacity(0.4),
+                          radius: 14.sp,
+                          child: Icon(Icons.delete_outline,color: ColorManager.errorColor
+                            ,size: 20.sp,),
+                        ))
+                      ],
                     ),
                   ],
                 ),

@@ -81,6 +81,9 @@
     "welcome_text": "Welcome ",
 
     "are_you_sure_logout_text": "Are you sure Logout ?",
+    "confirm_delete": "Confirm Delete",
+    "are_you_sure_delete_chat_text": "Are you sure delete a chat?",
+    "are_you_sure_delete_person_text": "Are you sure delete a person?",
     "logout_text": "Log out",
     "recognize_face_text": "Recognize face",
     "translate_language_text": "Translate Language",

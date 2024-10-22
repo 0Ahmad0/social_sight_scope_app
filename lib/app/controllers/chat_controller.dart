@@ -6,9 +6,13 @@ import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:social_sight_scope/app/controllers/home_persons_controller.dart';
+import 'package:social_sight_scope/app/controllers/person_controller.dart';
+import 'package:social_sight_scope/core/dialogs/type/loading_dialog.dart';
 import '../../core/enums/enums.dart';
 import '../../core/models/chat_model.dart';
 import '../../core/models/message_model.dart';
+import '../../core/models/person_model.dart';
 import '../../core/models/user_model.dart';
 import '../../core/widgets/constants_widgets.dart';
 import '../../translations/locale_keys.g.dart';
@@ -222,8 +226,17 @@ class ChatController extends GetxController{
     return result;
   }
   deleteChat(context,{required String idChat}) async{
+    ConstantsWidgets.showLoading();
     var result =await FirebaseFun
         .deleteChat(idChat: idChat);
+    if(result['status']){
+    PersonModel? person=Get.put(HomePersonsController()).persons.items.where((element)=>element.idChat==idChat).firstOrNull;
+    if(person!=null){
+      person.idChat=null;
+      await FirebaseFun.updatePerson(person:person!);
+    }
+    }
+    ConstantsWidgets.closeDialog();
     //ConstantsWidgets.TOAST(context,textToast: FirebaseFun.findTextToast(result['message'].toString()));
     return result;
   }

@@ -32,7 +32,7 @@ class CodegenLoader extends AssetLoader{
   "MB": "م.ب",
   "GB": "ج.ب",
   "loading": "جاري التحميل",
-  "deleted_account": "الحساب محذوف",
+  "deleted_account": "مستخدم محذوف",
   "login": {
     "welcome_back_text": "أهلا\nبعودتك",
     "login_text": "تسجيل الدخول",
@@ -91,7 +91,10 @@ class CodegenLoader extends AssetLoader{
   },
   "home": {
     "welcome_text": "أهلاً ",
-    "are_you_sure_logout_text": "هل أنت متأكد من تسجيل خروجك",
+    "are_you_sure_logout_text": "هل أنت متأكد من تسجيل خروجك؟",
+    "confirm_delete": "تأكيد الحذف",
+    "are_you_sure_delete_chat_text": "هل أنت متأكد من أنك تريد حذف الدردشة؟",
+    "are_you_sure_delete_person_text": "هل أنت متأكد أنك تريد حذف الشخص؟",
     "logout_text": "تسجيل الخروج",
     "recognize_face_text": "إضافة وجه جديد",
     "translate_language_text": "ترجمة اللغات",
@@ -244,6 +247,9 @@ static const Map<String,dynamic> en = {
   "home": {
     "welcome_text": "Welcome ",
     "are_you_sure_logout_text": "Are you sure Logout ?",
+    "confirm_delete": "Confirm Delete",
+    "are_you_sure_delete_chat_text": "Are you sure delete a chat?",
+    "are_you_sure_delete_person_text": "Are you sure delete a person?",
     "logout_text": "Log out",
     "recognize_face_text": "Recognize face",
     "translate_language_text": "Translate Language",
