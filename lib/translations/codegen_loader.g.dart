@@ -164,7 +164,8 @@ class CodegenLoader extends AssetLoader{
     "successful_update": "تم التحديث بنجاح",
     "successful_send_reset_password": "تم إرسال إعادة تعيين كلمة المرور إلى البريد الإلكتروني بنجاح",
     "cannot_resend_code": "لا يمكنك إعادة إرسال الرمز حتى انتهاء المدة",
-    "unexpected_error": "حدث خطأ غير متوقع. الرجاء المحاولة لاحقاً."
+    "unexpected_error": "حدث خطأ غير متوقع. الرجاء المحاولة لاحقاً.",
+    "person_deleted_successfully": "تم حذف الشخص بنجاح"
   }
 };
 static const Map<String,dynamic> en = {
@@ -319,7 +320,8 @@ static const Map<String,dynamic> en = {
     "successful_update": "Successful update",
     "successful_send_reset_password": "Successful Send Reset Password To Email",
     "cannot_resend_code": "You cannot resend the code until the time expires",
-    "unexpected_error": "An unexpected error occurred. Please try again later."
+    "unexpected_error": "An unexpected error occurred. Please try again later.",
+    "person_deleted_successfully": "Person Deleted Duccessfully"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};

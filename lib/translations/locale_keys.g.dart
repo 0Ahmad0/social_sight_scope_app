@@ -140,6 +140,7 @@ abstract class  LocaleKeys {
   static const message_successful_send_reset_password = 'message.successful_send_reset_password';
   static const message_cannot_resend_code = 'message.cannot_resend_code';
   static const message_unexpected_error = 'message.unexpected_error';
+  static const message_person_deleted_successfully = 'message.person_deleted_successfully';
   static const message = 'message';
 
 }

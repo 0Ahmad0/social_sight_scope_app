@@ -153,7 +153,8 @@
     "successful_update": "Successful update",
     "successful_send_reset_password": "Successful Send Reset Password To Email",
     "cannot_resend_code": "You cannot resend the code until the time expires",
-    "unexpected_error": "An unexpected error occurred. Please try again later."
+    "unexpected_error": "An unexpected error occurred. Please try again later.",
+    "person_deleted_successfully": "Person Deleted Duccessfully"
 
 }
 }

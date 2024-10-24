@@ -450,9 +450,10 @@ class FirebaseFun {
         "تم حذف الجلسة بنجاح";
         errorMessage= tr(LocaleKeys.message_session_deleted_successfully);
         break;
-      case "":
+      case "person successfully delete":
         errorMessage =
         "";
+        errorMessage= tr(LocaleKeys.message_person_deleted_successfully);
         break;
       case "":
         errorMessage =

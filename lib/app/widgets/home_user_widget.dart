@@ -96,16 +96,19 @@ class HomeUserWidget extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          person.description??'',
-                          // 'الوصف الوصف الوصف',
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                          overflow: TextOverflow.ellipsis,
-                          style: StyleManager.font12Medium(
-                              color: ColorManager.whiteColor
+                        Flexible(
+                          child: Text(
+                            person.description??'',
+                            // 'الوصف الوصف الوصف',
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
+                            overflow: TextOverflow.ellipsis,
+                            style: StyleManager.font12Medium(
+                                color: ColorManager.whiteColor
+                            ),
                           ),
                         ),
+                        SizedBox(width: 6.w,),
                         InkWell(onTap: (){
                           Get.defaultDialog(
                             confirm: Row(

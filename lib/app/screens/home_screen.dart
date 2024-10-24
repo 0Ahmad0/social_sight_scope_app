@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 controller.persons.items.clear();
                 if (snapshot.data!.docs.length > 0) {
                   controller.persons.items =
-                      PersonsModel.fromJson(snapshot.data!.docs).items;
+                      PersonsModel.fromJson(snapshot.data?.docs).items;
                 }
                 controller.filterPersons(term: controller.searchController.value.text);
                 return
@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                             icon: Icon(Icons.add),
                             label: Text(
-                                tr(LocaleKeys.add_person)
+                               tr(LocaleKeys.add_person_add_person_text)
                             )
                         ),
                       )

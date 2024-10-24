@@ -150,6 +150,7 @@
     "successful_update": "تم التحديث بنجاح",
     "successful_send_reset_password": "تم إرسال إعادة تعيين كلمة المرور إلى البريد الإلكتروني بنجاح",
     "cannot_resend_code": "لا يمكنك إعادة إرسال الرمز حتى انتهاء المدة",
-    "unexpected_error": "حدث خطأ غير متوقع. الرجاء المحاولة لاحقاً."
+    "unexpected_error": "حدث خطأ غير متوقع. الرجاء المحاولة لاحقاً.",
+    "person_deleted_successfully": "تم حذف الشخص بنجاح"
   }
 }
