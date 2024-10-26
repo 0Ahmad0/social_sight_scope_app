@@ -34,11 +34,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = -1;
   late HomePersonsController controller;
+
   void initState() {
     controller = Get.put(HomePersonsController());
     controller.onInit();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,15 +54,14 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body:   StreamBuilder<QuerySnapshot>(
+      body: StreamBuilder<QuerySnapshot>(
           stream: controller.getPersons,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return    ConstantsWidgets.circularProgress();
-            } else if (snapshot.connectionState ==
-                ConnectionState.active) {
+              return ConstantsWidgets.circularProgress();
+            } else if (snapshot.connectionState == ConnectionState.active) {
               if (snapshot.hasError) {
-                return  Text(tr(LocaleKeys.error));
+                return Text(tr(LocaleKeys.error));
               } else if (snapshot.hasData) {
                 ConstantsWidgets.circularProgress();
                 controller.persons.items.clear();
@@ -68,32 +69,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   controller.persons.items =
                       PersonsModel.fromJson(snapshot.data?.docs).items;
                 }
-                controller.filterPersons(term: controller.searchController.value.text);
-                return
-                  GetBuilder<HomePersonsController>(
-                      builder: (HomePersonsController HomePersonsController)=>
-                      (HomePersonsController.personsWithFilter.items.isEmpty ?? true)
-                          ?Center(
-                        child: TextButton.icon(
-                            onPressed: (){
-                              context.pushNamed(
-                                  Routes.addNewPersonRoute
-                              );
-                            },
-                            icon: Icon(Icons.add),
-                            label: Text(
-                               tr(LocaleKeys.add_person_add_person_text)
+                controller.filterPersons(
+                    term: controller.searchController.value.text);
+                return GetBuilder<HomePersonsController>(
+                  builder: (HomePersonsController HomePersonsController) =>
+                      (HomePersonsController.personsWithFilter.items.isEmpty ??
+                              true)
+                          ? Center(
+                              child: TextButton.icon(
+                                  onPressed: () {
+                                    context.pushNamed(Routes.addNewPersonRoute);
+                                  },
+                                  icon: Icon(Icons.add),
+                                  label: Text(tr(
+                                    LocaleKeys.add_person_add_person_text,
+                                  ))),
                             )
-                        ),
-                      )
-                      // EmptyWidget(
-                      //     text: tr(LocaleKeys.home_no_faces_available))
+                          // EmptyWidget(
+                          //     text: tr(LocaleKeys.home_no_faces_available))
                           // text: StringManager.infoNotFacesYet)
-                          :
-
-                      buildPersons(context, controller.personsWithFilter.items ?? []));
+                          : buildPersons(
+                              context,
+                              controller.personsWithFilter.items ?? [],
+                            ),
+                );
               } else {
-                return  Text( tr(LocaleKeys.empty_data));
+                return Text(tr(LocaleKeys.empty_data));
                 // return const Text('Empty data');
               }
             } else {
@@ -102,37 +103,28 @@ class _HomeScreenState extends State<HomeScreen> {
           }),
     );
   }
-  Widget buildPersons(BuildContext context,List<PersonModel> items){
-    return
-      StatefulBuilder(builder: (context, homeSetState) {
-        return GridView.builder(
-            itemCount:items.length,
-          padding: EdgeInsets.symmetric(
-              horizontal: 12.w,
-              vertical: 12.h
-          ),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 12.h,
-              crossAxisSpacing: 12.w
-          ),
-          itemBuilder: (context, index) => InkWell(
-            borderRadius: BorderRadius.circular(14.r),
-            onTap: () {
-              homeSetState(() {
-                _currentIndex = index;
-              });
-            },
-            child: HomeUserWidget(
-              person: items[index],
-              index: index,
-              currentIndex: _currentIndex,
-            ),
-          ),
-        );
-      });
 
+  Widget buildPersons(BuildContext context, List<PersonModel> items) {
+    return StatefulBuilder(builder: (context, homeSetState) {
+      return GridView.builder(
+        itemCount: items.length,
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, mainAxisSpacing: 12.h, crossAxisSpacing: 12.w),
+        itemBuilder: (context, index) => InkWell(
+          borderRadius: BorderRadius.circular(14.r),
+          onTap: () {
+            homeSetState(() {
+              _currentIndex = index;
+            });
+          },
+          child: HomeUserWidget(
+            person: items[index],
+            index: index,
+            currentIndex: _currentIndex,
+          ),
+        ),
+      );
+    });
   }
 }
-
-

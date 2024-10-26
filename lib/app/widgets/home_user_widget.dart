@@ -22,7 +22,8 @@ class HomeUserWidget extends StatelessWidget {
   const HomeUserWidget({
     super.key,
     required this.currentIndex,
-    required this.index, required this.person,
+    required this.index,
+    required this.person,
   });
 
   final int currentIndex;
@@ -43,36 +44,32 @@ class HomeUserWidget extends StatelessWidget {
                   offset: Offset(2.sp, 2.sp),
                   blurRadius: 8.sp,
                 )
-              ]
-          ),
+              ]),
           child: Column(
             children: [
               Expanded(
                 child: Container(
-                  width: 80.w,
-                  height: 80.h,
-                  clipBehavior: Clip.hardEdge,
-                  decoration: BoxDecoration(shape: BoxShape.circle),
-                  child:
-    CircleUserPictureWidget(
-    path:person.imagePath,
-    name:person.name,
-
-    radius:80.sp ,
-    )
-                  // Image.network(
-                  //   width: 80.w,
-                  //   height: 80.h,
-                  //   'https://news.griffith.edu.au/wp-content/uploads/2014/09/GriffithGC-5745-682x1024.jpg',
-                  // ),
-                ),
+                    width: 80.w,
+                    height: 80.h,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(shape: BoxShape.circle),
+                    child: CircleUserPictureWidget(
+                      path: person.imagePath,
+                      name: person.name,
+                      radius: 80.sp,
+                    )
+                    // Image.network(
+                    //   width: 80.w,
+                    //   height: 80.h,
+                    //   'https://news.griffith.edu.au/wp-content/uploads/2014/09/GriffithGC-5745-682x1024.jpg',
+                    // ),
+                    ),
               ),
               Container(
                 width: double.maxFinite,
                 padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
                 decoration: BoxDecoration(
                   color: ColorManager.primaryColor,
-
                   borderRadius: BorderRadius.vertical(
                     bottom: Radius.circular(14.r),
                   ),
@@ -83,14 +80,13 @@ class HomeUserWidget extends StatelessWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        person.name??'',
+                        person.name ?? '',
                         // 'محمد عبد الله ',
                         maxLines: 1,
                         textAlign: TextAlign.center,
                         overflow: TextOverflow.ellipsis,
                         style: StyleManager.font14Medium(
-                            color: ColorManager.whiteColor
-                        ),
+                            color: ColorManager.whiteColor),
                       ),
                     ),
                     Row(
@@ -98,67 +94,72 @@ class HomeUserWidget extends StatelessWidget {
                       children: [
                         Flexible(
                           child: Text(
-                            person.description??'',
+                            person.description ?? '',
                             // 'الوصف الوصف الوصف',
                             maxLines: 2,
                             textAlign: TextAlign.center,
                             overflow: TextOverflow.ellipsis,
                             style: StyleManager.font12Medium(
-                                color: ColorManager.whiteColor
-                            ),
+                                color: ColorManager.whiteColor),
                           ),
                         ),
-                        SizedBox(width: 6.w,),
-                        InkWell(onTap: (){
-                          Get.defaultDialog(
-                            confirm: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                        backgroundColor:
-                                        Theme.of(context).primaryColor),
-                                    onPressed: () async {
-                                      Navigator.pop(context);
-                                      await Get.put(HomePersonsController()).deletePerson(context,idPerson: person.id);
-                                      // chatProvider.deleteUserInGroup(context, idUser: idUser);
-                                    },
-                                    child: Text(
-                                      tr(LocaleKeys.ok),
-                                      style: StyleManager.font12Light(),
-                                    )),
-                                // SizedBox(
-                                //   width: 8.w,
-                                // ),
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                        foregroundColor: ColorManager.errorColor,
-                                        backgroundColor: ColorManager.errorColor),
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text(
-                                      tr(LocaleKeys.cancel),
-                                      style: StyleManager.font12Light(),
-                                    )),
-                              ],
-                            ),
-                            titleStyle:
-                            StyleManager.font20Bold(),
-                            title:tr(LocaleKeys.home_confirm_delete),
-                            content: Text(
-                                tr(LocaleKeys.home_are_you_sure_delete_person_text),
-                                style: StyleManager.font16Regular()
-                            ),
-                            radius: 14.sp,
-                          );
-
-                        }, child: CircleAvatar(
-                          backgroundColor: ColorManager.whiteColor.withOpacity(0.4),
-                          radius: 14.sp,
-                          child: Icon(Icons.delete_outline,color: ColorManager.errorColor
-                            ,size: 20.sp,),
-                        ))
+                        SizedBox(
+                          width: 6.w,
+                        ),
+                        InkWell(
+                            onTap: () {
+                              Get.defaultDialog(
+                                confirm: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    TextButton(
+                                        style: TextButton.styleFrom(
+                                            backgroundColor:
+                                                Theme.of(context).primaryColor),
+                                        onPressed: () async {
+                                          Navigator.pop(context);
+                                          await Get.put(HomePersonsController())
+                                              .deletePerson(context,
+                                                  idPerson: person.id);
+                                          // chatProvider.deleteUserInGroup(context, idUser: idUser);
+                                        },
+                                        child: Text(
+                                          tr(LocaleKeys.ok),
+                                          style: StyleManager.font12Light(),
+                                        )),
+                                    // SizedBox(
+                                    //   width: 8.w,
+                                    // ),
+                                    TextButton(
+                                        style: TextButton.styleFrom(
+                                            foregroundColor:
+                                                ColorManager.errorColor,
+                                            backgroundColor:
+                                                ColorManager.errorColor),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text(
+                                          tr(LocaleKeys.cancel),
+                                          style: StyleManager.font12Light(),
+                                        )),
+                                  ],
+                                ),
+                                titleStyle: StyleManager.font20Bold(),
+                                title: tr(LocaleKeys.home_confirm_delete),
+                                content: Text(
+                                    tr(LocaleKeys
+                                        .home_are_you_sure_delete_person_text),
+                                    style: StyleManager.font16Regular()),
+                                radius: 14.sp,
+                              );
+                            },
+                            child: Icon(
+                              Icons.more_vert,
+                              color: ColorManager.whiteColor,
+                              size: 20.sp,
+                            ))
                       ],
                     ),
                   ],
@@ -172,25 +173,21 @@ class HomeUserWidget extends StatelessWidget {
             child: FadeIn(
               child: AnimatedContainer(
                 duration:
-                Duration(milliseconds: ConstValueManager.animationDuration),
+                    Duration(milliseconds: ConstValueManager.animationDuration),
                 decoration: BoxDecoration(
                     color: ColorManager.blackColor.withOpacity(.4),
-                    borderRadius: BorderRadius.circular(
-                        14.r
-                    ),
-                    border: Border.all(
-                        color: ColorManager.primaryColor
-                    )
-                ),
+                    borderRadius: BorderRadius.circular(14.r),
+                    border: Border.all(color: ColorManager.primaryColor)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     FadeInUp(
                       child: InkWell(
-                        onTap: (){
+                        onTap: () {
                           // context.pushNamed(Routes.showPersonDetailsRoute);
-                          Get.put(PersonController()).person=person;
-                          Get.toNamed(Routes.addNewPersonRoute,arguments: {'person':person});
+                          Get.put(PersonController()).person = person;
+                          Get.toNamed(Routes.addNewPersonRoute,
+                              arguments: {'person': person});
                         },
                         child: Container(
                           padding: EdgeInsets.symmetric(
@@ -210,11 +207,12 @@ class HomeUserWidget extends StatelessWidget {
                     verticalSpace(10.h),
                     FadeInDown(
                       child: InkWell(
-                        onTap: (){
+                        onTap: () {
                           // context.pushNamed(Routes.sendMessageRoute,arguments: {
                           //   'index':index.toString()
                           // });
-                          Get.put(PersonsController()).connectionPerson(context, person,index);
+                          Get.put(PersonsController())
+                              .connectionPerson(context, person, index);
                         },
                         child: Hero(
                           tag: index.toString(),
